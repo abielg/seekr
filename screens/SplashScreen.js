@@ -1,5 +1,6 @@
 import Exponent from 'exponent';
 import React from 'react';
+import Router from '../navigation/Router';
 import {
   StyleSheet,
   Text,
@@ -7,6 +8,9 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import {
+  StackNavigation,
+} from '@exponent/ex-navigation';
 
 export default class SplashScreen extends React.Component {
   render() {
@@ -23,7 +27,7 @@ export default class SplashScreen extends React.Component {
           <View style={{flex: 1,}}/>
           <View style={{flex: 2, flexDirection: 'row'}}>
             <View style={{flex: 2,}}/>
-            <TouchableOpacity style={styles.leftButton}>
+            <TouchableOpacity style={styles.leftButton} onPress={this._goToSignup}>
               <Text style={{color: 'white'}}>Sign Up</Text>
             </TouchableOpacity>
             <View style={{flex: 1,}}/>
@@ -36,6 +40,10 @@ export default class SplashScreen extends React.Component {
         </View>
       </View>
     );
+  }
+
+  _goToSignup = () => {
+    this.props.navigator.push(Router.getRoute('signup'));
   }
 }
 
