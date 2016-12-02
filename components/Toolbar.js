@@ -40,11 +40,13 @@ var styles = StyleSheet.create({
     width: 50,
     color:'#000',
     textAlign:'center',
+    fontSize: 16,
   },
   toolbarTitle:{
     color:'#000',
     textAlign:'center',
-    fontWeight:'bold',
     flex:1 ,
+    fontFamily: 'Avenir',
+    fontSize: 20,
   }
 });

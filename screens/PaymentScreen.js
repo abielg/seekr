@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 20,
     top: 10,
-    marginRight: 10
+    marginRight: 10,
+    fontFamily: 'Avenir',
   },
 
   labelFieldWrapper : {
