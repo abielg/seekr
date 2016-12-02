@@ -13,7 +13,7 @@ import {
 export default class SignupScreen extends React.Component {
   render() {
     return (
-      <Toolbar left='<' title='Build Your Profile' />
+      <Toolbar navigator={this.props.navigator} left='<' title='Build Your Profile' />
     );
   }
 }
