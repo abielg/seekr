@@ -34,6 +34,12 @@ export default class SignupScreen extends React.Component {
           <View style={styles.gutter}/>
           <View style={styles.mainColumn}>
             <Toolbar navigator={this.props.navigator} left='<' title='Build Your Profile' />
+            <View style={{alignItems: 'center'}}>
+              <TouchableOpacity style={styles.addPic}>
+                <Text style={{fontSize:40}}>+</Text>
+              </TouchableOpacity>
+              <Text style={{marginBottom: 20, marginTop: 10}}>Profile Picture</Text>
+            </View>
             <TextLabelInput label='Name' placeholder='Johnny Appleseed' />
             <TextLabelInput label='Birthday' placeholder='MM/DD/YYYY' />
             <TextLabelInput label='Hometown' placeholder='United States' />
@@ -115,4 +121,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  addPic: {
+    height: 70,
+    width: 70,
+    borderRadius: 35,
+    borderWidth: 2,
+    borderColor: '#FF8217',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
