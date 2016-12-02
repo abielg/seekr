@@ -1,7 +1,7 @@
 import Exponent from 'exponent';
 import React from 'react';
 import Button from '../components/Button';
-
+import Router from '../navigation/Router';
 
 import {
   StyleSheet,
@@ -23,7 +23,7 @@ export default class ProfileReadyScreen extends React.Component {
         <View style={styles.mainwrapper}>
           <Text style={styles.name}>Abiel's Profile</Text>
           <View style={styles.picture}>
-            <TouchableOpacity style={styles.editButton}>
+            <TouchableOpacity style={styles.editButton} onPress={this._goToSignup}>
               <Text style={{color: '#FF8217'}}>Edit</Text>
             </TouchableOpacity>
             <Image
@@ -56,9 +56,12 @@ export default class ProfileReadyScreen extends React.Component {
             </View>
           </View>
         </View>
-        <View style={{flex:1, backgroundColor:'red'}}/>
+        <View style={{flex:1}}/>
       </View>
     );
+  }
+  _goToSignup = () => {
+    this.props.navigator.push(Router.getRoute('signup'));
   }
 }
 

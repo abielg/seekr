@@ -2,6 +2,8 @@ import Exponent from 'exponent';
 import React from 'react';
 import Toolbar from '../components/Toolbar';
 import Button from '../components/Button';
+import Router from '../navigation/Router';
+
 
 import {
   StyleSheet,
@@ -37,13 +39,19 @@ export default class SignupScreen extends React.Component {
           <View style={{flex:1}}/>
         </View>
         <View style={styles.bottomButton}>
-          <Button title='Done'>
+          <Button title='Done' action={this._goToProfileReady}>
           </Button>
         </View>
       </View>
     );
   }
+  _goToProfileReady = () => {
+    console.log("Hello world");
+    this.props.navigator.push(Router.getRoute('profileReadyScreen'));
+  }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
