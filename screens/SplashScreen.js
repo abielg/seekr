@@ -1,5 +1,6 @@
 import Exponent from 'exponent';
 import React from 'react';
+import Toolbar from '../components/Toolbar';
 import {
   StyleSheet,
   Text,
