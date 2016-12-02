@@ -56,7 +56,7 @@ export default class ProfileReadyScreen extends React.Component {
             </View>
           </View>
         </View>
-        <View style={{flex:1}}/>
+        <View style={{flex:1, backgroundColor:'red'}}/>
       </View>
     );
   }

@@ -4,8 +4,12 @@ import {
 
 import SignupScreen from '../screens/SignupScreen';
 import SplashScreen from '../screens/SplashScreen';
+import ProfileReadyScreen from '../screens/ProfileReadyScreen';
+import PaymentScreen from '../screens/PaymentScreen';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
   splashScreen: () => SplashScreen,
+  profileReadyScreen: () => ProfileReadyScreen,
+  paymentScreen: () => PaymentScreen,
 }));
