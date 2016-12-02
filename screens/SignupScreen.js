@@ -2,6 +2,7 @@ import Exponent from 'exponent';
 import React from 'react';
 import Toolbar from '../components/Toolbar';
 import TextLabelInput from '../components/TextLabelInput';
+import Router from '../navigation/Router';
 //import DatePicker from '../components/DatePicker';
 //import DatePicker2 from '../components/DatePicker2';
 
@@ -83,13 +84,16 @@ export default class SignupScreen extends React.Component {
           <Hr lineColor='#b3b3b3'/>
         </View>
 
-        <Button title='Continue' />
+        <Button title='Continue' action={this._goToPayments}/>
 
       </ScrollView>
     );
   }
 
-
+  _goToPayments = () => {
+    console.log("Hello world");
+    this.props.navigator.push(Router.getRoute('paymentScreen'));
+  }
 }
 
 const styles = StyleSheet.create({
