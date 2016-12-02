@@ -1,6 +1,5 @@
 import Exponent from 'exponent';
 import React from 'react';
-import Toolbar from '../components/Toolbar';
 import Router from '../navigation/Router';
 import {
   StyleSheet,
