@@ -38,56 +38,52 @@ export default class SignupScreen extends React.Component {
               <TouchableOpacity style={styles.addPic}>
                 <Text style={{fontSize:40}}>+</Text>
               </TouchableOpacity>
-              <Text style={{marginBottom: 20, marginTop: 10}}>Profile Picture</Text>
+              <Text style={{marginBottom: 20, marginTop: 10, color:'#FF8217'}}>Profile Picture</Text>
             </View>
-            <TextLabelInput label='Name' placeholder='Johnny Appleseed' />
-            <TextLabelInput label='Birthday' placeholder='MM/DD/YYYY' />
-            <TextLabelInput label='Hometown' placeholder='United States' />
-            <TextLabelInput label='Language' placeholder='English' />
-            <TextLabelInput label='Text Bio' placeholder='Tell us about yourself.' />
+            <TextLabelInput label='Name' placeholder='Johnny Appleseed' height={30} />
+            <TextLabelInput label='Birthday' placeholder='MM/DD/YYYY' height={30} />
+            <TextLabelInput label='Hometown' placeholder='United States' height={30} />
+            <TextLabelInput label='Language' placeholder='English' height={30} />
+            <TextLabelInput label='Text Bio' placeholder='Tell us about yourself.' height={90} />
           </View>
           <View style={styles.gutter}/>
         </View>
 
-        <View>
-          <Hr lineColor='#b3b3b3'/>
+        <View style={{margin: 20}}>
+          <Hr lineColor='#C5C2C2'/>
         </View>
 
         <View style={styles.container}>
           <View style={styles.gutter}/>
           <View style={styles.mainColumn}>
-            <Text style={styles.subtitle}>Tell Us What Experiences You Seek</Text>
+            <Text style={styles.subtitle}>Tell us what experiences you seek!</Text>
             
             <View style={styles.gridRowContainer}>
             <InterestButton title='Soccer' />
             <InterestButton title='Food' />
-            <InterestButton title='Arson' />
+            <InterestButton title='Shopping' />
             </View>
             
             <View style={styles.gridRowContainer}>
-            <InterestButton title='Soccer' />
-            <InterestButton title='Food' />
-            <InterestButton title='Arson' />
+            <InterestButton title='Photography' />
+            <InterestButton title='Museums' />
+            <InterestButton title='Nightlife' />
             </View>
 
             <View style={styles.gridRowContainer}>
-            <InterestButton title='Soccer' />
-            <InterestButton title='Food' />
-            <InterestButton title='Arson' />
+            <InterestButton title='Outdoors' />
+            <InterestButton title='Sightsee' />
+            <InterestButton title='Arts' />
             </View>
 
             <View style={styles.gridRowContainer}>
-            <InterestButton title='Soccer' />
-            <InterestButton title='Food' />
-            <InterestButton title='Arson' />
+            <InterestButton title='Sailing' />
+            <InterestButton title='College' />
+            <InterestButton title='Tennis' />
             </View>
 
           </View>
           <View style={styles.gutter}/>
-        </View>
-
-        <View>
-          <Hr lineColor='#b3b3b3'/>
         </View>
 
         <Button title='Continue' action={this._goToPayments}/>
@@ -108,7 +104,7 @@ const styles = StyleSheet.create({
   },
 
   mainColumn: {
-    flex: 7,
+    flex: 8,
   },
   gutter: {
     flex: 1,
@@ -129,5 +125,11 @@ const styles = StyleSheet.create({
     borderColor: '#FF8217',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  subtitle : {
+    fontSize: 18,
+    fontFamily: 'Avenir',
+    marginBottom: 20,
+    fontWeight: 'bold'
   }
 });

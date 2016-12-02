@@ -14,7 +14,7 @@ export default class TextLabelInput extends React.Component {
       <View style={styles.inputGroup}>
           <Text style={styles.label}>{this.props.label}</Text>
           <TextInput
-             style = {styles.input}
+             style = {this.inputStyle(this.props.height)}
              placeholder = {this.props.placeholder}
              autoCapitalize = 'none'
           />
@@ -22,6 +22,16 @@ export default class TextLabelInput extends React.Component {
     );
   }
 
+  inputStyle = (heightSpek) => {
+    return {
+      backgroundColor: '#F3F3F3',
+      height: heightSpek,
+      flex: 1,
+      fontSize: 16,
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
+  }
 
 }
 
@@ -31,15 +41,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   label: {
-    flex: 1,
-    fontSize: 20,
-  },
-  input: {
-     padding: 5,
-     //height: 40,
-     backgroundColor: '#F3F3F3',
-     //borderColor: 'grey',
-     flex: 1.5,
-     //borderWidth: 1
+    fontSize: 16,
+    fontFamily: 'Avenir',
+    marginRight: 15,
   },
 });

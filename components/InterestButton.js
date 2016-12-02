@@ -43,7 +43,9 @@ var styles = StyleSheet.create({
     borderColor: '#FF8217',
     borderWidth: 1,
     borderRadius: 8,
-    marginRight: 5,
+    marginRight: 10,
+    marginBottom: 10,
+    left: -10
   },
   pressedButtonStyle : {
     alignItems: 'center',
@@ -54,7 +56,10 @@ var styles = StyleSheet.create({
     borderColor: '#FF8217',
     borderWidth: 1,
     borderRadius: 8,
-    marginRight: 5,
+    marginRight: 10,
+    marginBottom: 10,
+    left: -10
+
   },
   container: {
     alignItems: 'center',
