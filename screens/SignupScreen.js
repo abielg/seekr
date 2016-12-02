@@ -17,11 +17,6 @@ import {
   DatePickerIOS,
 } from 'react-native';
 
-import { Form, InputField,
-        Separator, SwitchField, LinkField ,
-        PickerField, DatePickerField
-} from 'react-native-form-generator';
-
 import Hr from 'react-native-hr';
 import InterestButton from '../components/InterestButton';
 import Button from '../components/Button';
