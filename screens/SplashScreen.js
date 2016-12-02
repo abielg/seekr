@@ -1,10 +1,7 @@
 import Exponent from 'exponent';
 import React from 'react';
-<<<<<<< HEAD
 import Toolbar from '../components/Toolbar';
-=======
 import Router from '../navigation/Router';
->>>>>>> ec3063cf6b997e82e7fa89d59027ff6632a45907
 import {
   StyleSheet,
   Text,
