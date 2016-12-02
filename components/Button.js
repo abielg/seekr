@@ -37,5 +37,6 @@ var styles = StyleSheet.create({
 
   buttonTitle: {
     color: 'white',
+    fontFamily: 'HelveticaNeue',
   },
 });
