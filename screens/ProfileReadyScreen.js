@@ -27,7 +27,7 @@ export default class ProfileReadyScreen extends React.Component {
               <Text style={{color: '#FF8217'}}>Edit</Text>
             </TouchableOpacity>
             <Image
-              source={require('../assets/headshot.jpg')}
+              source={require('../assets/abiel.jpg')}
               style={{
                 height: 150,
                 width: 150,

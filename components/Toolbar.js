@@ -31,7 +31,7 @@ export default class Toolbar extends React.Component{
 
 var styles = StyleSheet.create({
   toolbar:{
-    backgroundColor:'#fff',
+    backgroundColor:'#FAFAFA',
     paddingTop:30,
     paddingBottom:10,
     flexDirection:'row',
