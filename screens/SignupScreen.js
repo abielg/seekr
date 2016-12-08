@@ -88,7 +88,6 @@ export default class SignupScreen extends React.Component {
   }
 
   _goToPayments = () => {
-    console.log("Hello world");
     this.props.navigator.push(Router.getRoute('paymentScreen'));
   }
 }

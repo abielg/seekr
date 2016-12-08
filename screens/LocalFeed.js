@@ -28,7 +28,7 @@ export default class LocalFeed extends React.Component {
             <Text style={styles.subtitle}>Choose Adventure Buddy:</Text>
             <ScrollView style={{height: 600}}>
               <ProfileCard name='Abiel Gutierrez' bio={this.bio1} pic={require('../assets/abiel.jpg')}
-              age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4'/>
+              age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4' action={this._goToLocalProfile}/>
               <ProfileCard name='Eesha Choudhari' bio={this.bio2} pic={require('../assets/eesha.jpg')}
               age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5'/>
               <ProfileCard name='Paul Ryan' bio={this.bio3} pic={require('../assets/paul.jpg')}
@@ -40,8 +40,8 @@ export default class LocalFeed extends React.Component {
       </View>
     );
   }
-  _goToProfileReady = () => {
-    this.props.navigator.push(Router.getRoute('profileReadyScreen'));
+  _goToLocalProfile = () => {
+    this.props.navigator.push(Router.getRoute('localProfile'));
   }
 
   bio1 = 'Stanford CS major, sports fan, and nature freak. I like to take people around campus.'

@@ -17,7 +17,7 @@ export default class MenuView extends React.Component {
         <View style={styles.menuItemContainer}>
           <View style={styles.menuItemProfile}>
             <Image
-              source={require('../assets/headshot.jpg')}
+              source={require('../assets/abiel.jpg')}
               style={{
                 height: 70,
                 width: 70,

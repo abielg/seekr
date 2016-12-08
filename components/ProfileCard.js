@@ -30,7 +30,7 @@ export default class Button extends React.Component{
   }
     render() {
         return (
-          <TouchableOpacity style={styles.bigcontainer} onPress={this._goToProfileReady}>
+          <TouchableOpacity style={styles.bigcontainer} onPress={this.props.action}>
             <View style={styles.container}>
               <View style={styles.topSection}>
                 <View style={styles.picSection}>
@@ -64,10 +64,6 @@ export default class Button extends React.Component{
           </TouchableOpacity>
         );
     }
-
-  _goToProfileReady = () => {
-    this.props.navigator.push(Router.getRoute('profileReadyScreen'));
-  }
 }
 
 var styles = StyleSheet.create({

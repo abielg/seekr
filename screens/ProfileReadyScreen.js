@@ -39,7 +39,7 @@ export default class ProfileReadyScreen extends React.Component {
             />
             <Text style={{fontSize: 26, fontFamily: 'Avenir'}}>Abiel, 21</Text>
             <Text style={styles.interests}>
-              <Text style={{color:'#FF8217'}}>Seeking:</Text> Partying Bars Shopping
+              <Text style={{color:'black'}}>Seeking:</Text> Partying Bars Shopping
             </Text>
             <Text style={styles.bio}>
               Mixology enthusiast, lover of unique cocktails. Let’s go 
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   interests : {
     marginTop: 10,
     fontFamily: 'Avenir',
+    color: '#FF8217'
   },
 
   bio : {
