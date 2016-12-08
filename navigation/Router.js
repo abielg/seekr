@@ -9,6 +9,7 @@ import PaymentScreen from '../screens/PaymentScreen';
 import LocalFeed from '../screens/LocalFeed';
 import EmptyScreen from '../screens/EmptyScreen';
 import LocalProfile from  '../screens/LocalProfile';
+import RateTripScreen from '../screens/RateTripScreen';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -18,4 +19,5 @@ export default createRouter(() => ({
   localFeed: () => LocalFeed,
   emptyScreen: () => EmptyScreen,
   localProfile: () => LocalProfile,
+  rateTripScreen: () => RateTripScreen,
 }));

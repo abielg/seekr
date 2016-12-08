@@ -12,7 +12,7 @@ export default class TextLabelInput extends React.Component {
   render() {
     return (
       <View style={styles.inputGroup}>
-          <Text style={styles.label}>{this.props.label}</Text>
+          {this.props.removeLabel || <Text style={styles.label}>{this.props.label}</Text>}
           <TextInput
              style = {this.inputStyle(this.props.height)}
              placeholder = {this.props.placeholder}

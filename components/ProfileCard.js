@@ -72,6 +72,8 @@ var styles = StyleSheet.create({
     height: 140,
     flexDirection: 'row',
     marginTop: 15,
+    borderWidth:1,
+    borderColor:'#E4E4E4'
   },
   container : {
     flex: 18,
