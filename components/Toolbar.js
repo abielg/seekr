@@ -1,5 +1,6 @@
 import Exponent from 'exponent';
 import React from 'react';
+import Hamburger from '../components/Hamburger';
 import {
   StyleSheet,
   Text,
@@ -15,9 +16,17 @@ export default class Toolbar extends React.Component{
         return (
           <View>
             <View style={styles.toolbar}>
+              {this.props.left !== 'Hamburger'  &&
               <Text style={styles.toolbarButton} onPress={this._goBack}>
                 {this.props.left}
-              </Text>
+              </Text>}
+
+              {this.props.left === 'Hamburger'  &&
+              <View style={styles.toolbarIcon}>
+                <View style={styles.toolbarIconPadding} />
+                <Hamburger active={false} onPress={this.props.onPress}/>
+              </View>}
+
               <Text style={styles.toolbarTitle}>{this.props.title}</Text>
               <Text style={styles.toolbarButton}>{this.props.right}</Text>
           </View>
@@ -35,6 +44,12 @@ var styles = StyleSheet.create({
     paddingTop:30,
     paddingBottom:10,
     flexDirection:'row',
+  },
+  toolbarIcon:{
+   flexDirection:'row',
+  },
+  toolbarIconPadding:{
+    paddingRight: 10,
   },
   toolbarButton:{
     width: 50,
