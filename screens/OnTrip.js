@@ -73,7 +73,6 @@ _renderMapItem = () => {
   else if (this.state.picIndex === 'thirdDst'){
     return (
       <Image 
-
         source={require('../assets/spot3.png')} 
         style ={styles.dstPic}
       /> 
@@ -107,7 +106,7 @@ render() {
                 style ={styles.pic}
               /> 
               <Text style={styles.picText}>
-                Off the Grid
+                Bar Basic
               </Text>
             </TouchableOpacity>
           </View>
