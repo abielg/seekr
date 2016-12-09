@@ -86,7 +86,7 @@ render() {
     return (
       <View style={styles.container}>
 
-        <Toolbar navigator={this.props.navigator} title='On Adventure' right='Done' />
+        <Toolbar navigator={this.props.navigator} title='On Adventure' right='Done' onRightPress={this._goToRateTrip}/>
         {this._renderMapItem()}
         <View style={styles.suggestedContainer}>
           <Text style={styles.suggestedText}> Suggested Next Stops</Text>
@@ -124,8 +124,8 @@ render() {
     );
   }
 
-_goToMainMap = () => {
-    this.props.navigator.push(Router.getRoute('MainMap'));
+  _goToRateTrip= () => {
+      this.props.navigator.push(Router.getRoute('rateTripScreen'));
   }
 }
 

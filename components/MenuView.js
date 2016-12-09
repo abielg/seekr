@@ -19,7 +19,6 @@ var screenWidth = Dimensions.get('window').width;
 export default class MenuView extends React.Component {
   constructor(props) {
     super(props);
-    console.log("IS LOCAL:"+this.props.statusIsLocal)
     this.state = { statusIsLocal: this.props.statusIsLocal};
   }
 

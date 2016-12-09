@@ -57,6 +57,10 @@ export default class RateTripScreen extends React.Component {
     };
   };
 
+  _goToSummary = () => {
+    this.props.navigator.push(Router.getRoute('tripSummaryScreen'));
+  };
+
   render () {
     return (
       <View style={styles.bigContainer}>
@@ -70,9 +74,9 @@ export default class RateTripScreen extends React.Component {
             </View>
             <Text style={styles.rateText}> Leave a Review </Text>
             <TextLabelInput removeLabel={true}  height={200} />
-            <View style={{alignItems:'center'}}>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={this._goToSummary}>
               <Text style={styles.doneLink}> Done </Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.sideGutter}/>
         </View>

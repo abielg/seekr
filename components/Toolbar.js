@@ -29,17 +29,13 @@ export default class Toolbar extends React.Component{
               </View>}
 
               <Text style={styles.toolbarTitle}>{this.props.title}</Text>
-              <Text style={styles.toolbarButton} onPress={this.goToMap}>{this.props.right}</Text>
+              <Text style={styles.toolbarButton} onPress={this.props.onRightPress}>{this.props.right}</Text>
           </View>
           </View>
         );
     }
     _goBack = () => {
       this.props.navigator.pop();
-    }
-
-    goToMap = () => {
-      this.props.navigator.push(Router.getRoute('MainMap'));
     }
 }
 
