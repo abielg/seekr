@@ -27,7 +27,7 @@ class AppContainer extends React.Component {
     return (
       <View style={styles.container}>
         <NavigationProvider router={Router}>
-          <StackNavigation id="root" initialRoute={Router.getRoute('tripPlayback')} />
+          <StackNavigation id="root" initialRoute={Router.getRoute('OnTrip')} />
         </NavigationProvider>
       </View>
     );

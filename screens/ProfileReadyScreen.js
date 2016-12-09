@@ -51,8 +51,7 @@ export default class ProfileReadyScreen extends React.Component {
               style ={{ margin: 20 }}
             />
             <View style={styles.bottomButton}>
-              <Button title='Start Seeking >'>
-              </Button>
+              <Button title='Start Seeking >' action={this._goToMainMap}/>
             </View>
           </View>
         </View>
@@ -62,6 +61,9 @@ export default class ProfileReadyScreen extends React.Component {
   }
   _goToSignup = () => {
     this.props.navigator.push(Router.getRoute('signup'));
+  }
+  _goToMainMap = () => {
+    this.props.navigator.push(Router.getRoute('MainMap'));
   }
 }
 

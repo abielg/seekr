@@ -25,8 +25,7 @@ export default class FindingScreen extends React.Component {
 
 componentDidMount () {
     setTimeout(() => {
-      console.log('hello guys');
-	  this.props.navigator.push(Router.getRoute('signup'));
+	  this.props.navigator.push(Router.getRoute('AcceptedScreen'));
     }, 5000);
   }
 
@@ -34,7 +33,7 @@ componentDidMount () {
     return (
         <View style={styles.container}>
           <View style={styles.background}>  
-            <Text style={styles.title}> Abiel has 1 minute to accept your request.  </Text>
+            <Text style={styles.title}> Eesha has 1 minute to accept your request.  </Text>
 				<CountDown
 				  text={':'} //default '' 
 				  time={59} //default 60 
@@ -42,7 +41,7 @@ componentDidMount () {
 				  textStyle={{color:'black', fontSize: 36}} //default black 
 				  //disabledTextStyle={{color:'gray'}} //default gray 
 				/>           
-		 	<TouchableOpacity style={styles.cancelButton} onPress={this._goToSignup}>
+		 	<TouchableOpacity style={styles.cancelButton} onPress={this.goToMainMap}>
               <Text style={{color: 'white'}}>X</Text>
             </TouchableOpacity>
             <Text style={styles.cancel}> Cancel </Text>
@@ -52,8 +51,8 @@ componentDidMount () {
     );
   }
 
-_goToSignup = () => {
-    this.props.navigator.push(Router.getRoute('AcceptedScreen'));
+goToMainMap = () => {
+    this.props.navigator.push(Router.getRoute('MainMap'));
   }
 }
 

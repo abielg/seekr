@@ -48,7 +48,7 @@ export default class LocalProfile extends React.Component {
                   style={styles.pic}
               />
               <Text style={styles.nameAge}>Eesha, 22</Text>
-              <Button title='Request' action={this._goToSignup}/>
+              <Button title='Request' action={this._goToTimerScreen}/>
               <View style={{}}>
                 <Text style={styles.interests}>
                   <Text style={{color:'black', fontWeight:'bold'}}>Seeking:</Text>   Partying   Bars    Shopping
@@ -92,8 +92,8 @@ export default class LocalProfile extends React.Component {
       </View>
     );
   }
-  _goToSignup = () => {
-    this.props.navigator.push(Router.getRoute('signup'));
+  _goToTimerScreen = () => {
+    this.props.navigator.push(Router.getRoute('TimerScreen'));
   }
 }
 
