@@ -76,11 +76,11 @@ export default class TouristFeed extends React.Component {
           <Text style={styles.subtitle}>Choose Adventure Buddy:</Text>
           <ScrollView style={{height: 520}}>
             <ProfileCard name='Abiel Gutierrez' bio={this.bio1} pic={require('../assets/abiel.jpg')}
-            age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4' action={this._goToLocalProfile}/>
+            age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4' action={this._goToTouristProfile}/>
             <ProfileCard name='Eesha Choudhari' bio={this.bio2} pic={require('../assets/eesha.jpg')}
-            age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5' action={this._goToLocalProfile}/>
+            age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5' action={this._goToTouristProfile}/>
             <ProfileCard name='Paul Ryan' bio={this.bio3} pic={require('../assets/paul.jpg')}
-            age='43 years old'interests={this.interests3} reviewsNum='20' numStars='4' action={this._goToLocalProfile}/>
+            age='43 years old'interests={this.interests3} reviewsNum='20' numStars='4' action={this._goToTouristProfile}/>
           </ScrollView>
         </View>
         <View style={{flex: 1}}/> 
@@ -88,8 +88,8 @@ export default class TouristFeed extends React.Component {
     );
   }
 
-  _goToLocalProfile = () => {
-    this.props.navigator.push(Router.getRoute('localProfile'));
+  _goToTouristProfile = () => {
+    this.props.navigator.push(Router.getRoute('touristProfile'));
   }
 
   bio1 = 'Stanford CS major, sports fan, and nature freak. I like to take people around campus.'
