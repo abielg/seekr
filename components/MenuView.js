@@ -1,13 +1,16 @@
 import Exponent from 'exponent';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import Toolbar from '../components/Toolbar';
+import Router from '../navigation/Router';
+import ProfileCard from '../components/ProfileCard';
 import {
   StyleSheet,
   Text,
   View,
   Dimensions,
   Image,
+  TouchableOpacity
 } from 'react-native';
 
 export default class MenuView extends React.Component {
@@ -36,15 +39,15 @@ export default class MenuView extends React.Component {
             </Text>
           </View>
           <View style={styles.line}/>
-          <View style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress = {this.goToPayments}>
            <Icon style={{paddingRight:10}} name="money" size={25} color="#FFF" />
            <Text style={styles.text}> Payments </Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.line}/>
-          <View style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress = {this.goToTrips}>
             <Icon style={{paddingRight:10}} name="map" size={25} color="#FFF" />
            <Text style={styles.text}>  Trips </Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.line}/>
           <View style={styles.menuItem}>
             <Icon style={{paddingRight:10}} name="gear" size={25} color="#FFF" />
@@ -65,9 +68,21 @@ export default class MenuView extends React.Component {
           </View>
         </View>
       </View>
-    )
+
+    );
   }
 }
+
+goToPayments = () => {
+    this.props.navigator.push(Router.getRoute('paymentScreen'));
+    console.log("hi!");
+      }
+
+
+goToTrips = () => {
+    this.props.navigator.push(Router.getRoute('tripSummaryScreen'));
+  }
+
 
 const styles= StyleSheet.create({
   overlay:{

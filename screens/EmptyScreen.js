@@ -26,7 +26,7 @@ export default class EmptyScreen extends React.Component {
     return (
       <Drawer
         ref={(ref) => this._drawer = ref}
-        content={<MenuView/>}
+        content={<MenuView navigator={this.props.navigator}/>}
         openDrawerOffset={0.3}
         closedDrawerOffset={0}
         acceptTap = {true}
