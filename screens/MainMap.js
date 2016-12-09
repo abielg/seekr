@@ -134,7 +134,7 @@ export default class MainMap extends React.Component {
     
   }
   _goToSignup = () => {
-      this.props.navigator.push(Router.getRoute('signup'));
+      this.props.navigator.push(Router.getRoute('localFeed'));
   }
 }
 
