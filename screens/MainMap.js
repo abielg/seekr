@@ -78,7 +78,7 @@ export default class MainMap extends React.Component {
       return (
         <Drawer
           ref={(ref) => this._drawer = ref}
-          content={<MenuView navigator={this.props.navigator}/>}
+          content={<MenuView navigator={this.props.navigator} statusIsLocal={false}/>}
           openDrawerOffset={0.3}
           closedDrawerOffset={0}
           acceptTap = {true}

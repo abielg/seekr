@@ -19,12 +19,16 @@ var screenWidth = Dimensions.get('window').width;
 export default class MenuView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { statusIsLocal: true };
+    console.log("IS LOCAL:"+this.props.statusIsLocal)
+    this.state = { statusIsLocal: this.props.statusIsLocal};
   }
 
   _changeStatus(pressed){
-    if ((this.state.statusIsLocal && pressed != 'local') || (!this.state.statusIsLocal && pressed != 'tourist')){
-      this.setState({ statusIsLocal: !this.state.statusIsLocal });
+    if ((this.state.statusIsLocal && pressed != 'local')){
+      this.props.navigator.push(Router.getRoute('MainMap'));
+      //this.setState({ statusIsLocal: !this.state.statusIsLocal });
+    } else if ((!this.state.statusIsLocal && pressed != 'tourist')){
+      this.props.navigator.push(Router.getRoute('touristFeed'));
     }
   }
   render () {
