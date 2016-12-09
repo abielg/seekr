@@ -24,6 +24,20 @@ export default class TripSummaryScreen extends React.Component {
     super(props);
   }
 
+  _renderStars(numStars) {
+    count = 1;
+    result = [];
+    while (count <= 5){
+      if (count <= numStars){
+        result.push(<Image key={count} source={require('../assets/fullStar.png')} style={styles.stars}/>);
+      } else {
+        result.push(<Image key={count} source={require('../assets/emptyStar.png')} style={styles.stars}/>);
+      }
+      count += 1;
+    }
+    return result
+  }
+
   render () {
     var playback =             
       <Image
@@ -35,6 +49,21 @@ export default class TripSummaryScreen extends React.Component {
       />;
     return (
       <View style={styles.bigContainer}>
+        <View style={styles.absoluteEeshaGroup}>
+          <Image
+            source={require('../assets/eesha.jpg')}
+            style={{
+              height: 70,
+              width: 70,
+              borderRadius: 35,
+            }}
+          />
+          <Text style={styles.eeshaFont}> Eesha </Text>
+          <View style={styles.starContainer}>
+            {this._renderStars(4)}
+          </View>
+          <Text style={styles.eeshaMoneyFont}> $45.64</Text>
+        </View>
         <Toolbar navigator={this.props.navigator} title='Trip Summary' />
         <View style={styles.adventureHeader}>
           <Text style={styles.adventureComplete}> Your adventure is complete! </Text>
@@ -53,32 +82,61 @@ export default class TripSummaryScreen extends React.Component {
           source={require('../assets/trip-summary.png')}
           style={styles.mapImg}
         />
-        <Image
-          source={require('../assets/trip-summary.png')}
-          style={styles.routeImg}
-        />
+        <View style={styles.routeContainer}>
+          <View style={styles.routeGutter}/>
+          <Image
+            source={require('../assets/group.png')}
+            style={{
+              //flex: 2
+              marginRight: 10,
+            }}
+          />
+          <View style={styles.routeTextGroup}>
+            <Text style={styles.routeText}> Stanford University</Text>
+            <Text style={styles.routeText}> Bay Bridge </Text>
+            <Text style={styles.routeText}> Sushiritto </Text>
+            <Text style={styles.routeText}> Bar Basic </Text>
+          </View>
+        </View>
         <View style={styles.statsContainer}>
           <Image
             source={require('../assets/camera-timer.png')}
             style={{
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
+              opacity: 0.7,
             }}
           />
+          <View style={styles.statsTextGroup}>
+            <Text style={styles.miniStatsText}> Time </Text>
+            <Text style={styles.bigStatsText}> 3 hr 50 min </Text>
+          </View>
+          <View style={styles.statsDivider}/>
           <Image
             source={require('../assets/placeholder.png')}
             style={{
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
+              opacity: 0.7,
             }}
           />
+          <View style={styles.statsTextGroup}>
+            <Text style={styles.miniStatsText}> Stops </Text>
+            <Text style={styles.bigStatsText}> 4 </Text>
+          </View>
+          <View style={styles.statsDivider}/>
           <Image
             source={require('../assets/picture.png')}
             style={{
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
+              opacity: 0.7,
             }}
           />
+          <View style={styles.statsTextGroup}>
+            <Text style={styles.miniStatsText}> Snaps </Text>
+            <Text style={styles.bigStatsText}> 46 </Text>
+          </View>
         </View>
         <View style={styles.buttonContainer}>
           <PlaybackButton image={playback} title='Start Playback '/>
@@ -90,27 +148,97 @@ export default class TripSummaryScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  starContainer: {
+    flexDirection: 'row',
+  },
+  stars : {
+    height: 15,
+    width: 15,
+  }, 
+  eeshaMoneyFont: {
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    opacity: 0.7,
+    right: 5,
+  },
+  eeshaFont: {
+    fontFamily: 'Avenir',
+    fontSize: 17,
+    //fontWeight: 'bold',
+  },
+  absoluteEeshaGroup: {
+    position: 'absolute',
+    top: 300,
+    left: 275,
+    justifyContent: 'center',
+    alignItems:'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    zIndex:2,
+  },
   bigContainer: {
     flex: 1,
     flexDirection: 'column',
   },
+  statsDivider: {
+    height: 50,
+    width: 1,
+    opacity: 0.6,
+    backgroundColor: 'black',
+    marginRight: 10,
+    marginLeft: 10,
+  },
+  bigStatsText: {
+    fontFamily: 'Avenir',
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
+  miniStatsText: {
+    fontFamily: 'Avenir',
+    fontSize: 12,
+
+  },
+  statsTextGroup: {
+    flexDirection: 'column',
+    marginLeft: 5,
+  },
   statsContainer: {
-    flex:0.35,
+    flex:0.3,
     flexDirection: 'row',
     alignItems:'center',
+    justifyContent: 'center',
+    //backgroundColor: 'purple',
 
   },
   doneLink:{
     color: '#FF8217',
     fontFamily: 'Avenir',
     fontSize: 15,
+    paddingTop: 15,
   },
-  routeImg: {
-    flex: 0.3,
+  routeContainer: {
+    flex: 0.55,
     width: Dimensions.get('window').width,
+    flexDirection: 'row',
+    //justifyContent: 'center',
+    alignItems:'center',
+    //backgroundColor: 'pink',
+  },
+  routeGutter: {
+    flex: 0.5,
+  },
+  routeTextGroup: {
+    flexDirection: 'column',
+    flex: 5,
+  },
+  routeText: {
+    fontFamily: 'Avenir',
+    fontSize: 13,
+    top: 5,
+    marginBottom: 12,
   },
   mapImg: {
-    flex: 0.4,
+    flex: 0.1,
+    //resizeMode : 'stretch',
     width: Dimensions.get('window').width,
   },
   shareText: {
@@ -126,7 +254,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   adventureHeader: {
-    flex: 0.15,
+    flex: 0.2,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -138,9 +266,10 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'column',
-    flex: 0.35,
+    flex: 0.4,
     justifyContent: 'center',
     alignItems:'center',
+    bottom: 10,
   },
 
 });
