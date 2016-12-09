@@ -23,6 +23,7 @@ import localSignup from '../screens/localSignup';
 import TripLog from '../screens/TripLog';
 import MenuView from '../components/MenuView';
 import TouristProfile from '../screens/TouristProfile';
+import Settings from '../screens/Settings';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -47,4 +48,5 @@ export default createRouter(() => ({
   TripLog: () => TripLog,
   MenuView: () => MenuView,
   touristProfile: () => TouristProfile,
+  settings: () => Settings
 }));

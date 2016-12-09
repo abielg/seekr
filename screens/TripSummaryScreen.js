@@ -22,6 +22,7 @@ export default class TripSummaryScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {selection: 'eesha'};
   }
 
   _renderStars(numStars) {
@@ -139,11 +140,20 @@ export default class TripSummaryScreen extends React.Component {
           </View>
         </View>
         <View style={styles.buttonContainer}>
-          <PlaybackButton image={playback} title='Start Playback '/>
-          <Text style={styles.doneLink}> Done </Text>
+          <PlaybackButton image={playback} title='Start Playback ' action={this.goToPlayback}/>
+          <TouchableOpacity onPress={this.goHome}>
+            <Text style={styles.doneLink}> Done </Text>
+          </TouchableOpacity>
         </View>
       </View>
     )
+  }
+
+  goToPlayback = () => {
+    this.props.navigator.push(Router.getRoute('tripPlayback'));
+  }
+  goHome = () => {
+    this.props.navigator.push(Router.getRoute('MainMap'));
   }
 }
 
