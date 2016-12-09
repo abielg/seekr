@@ -46,6 +46,7 @@ export default class SignupScreen extends React.Component {
     );
   }
   _goToProfileReady = () => {
+    console.log('hello');
     this.props.navigator.push(Router.getRoute('profileReadyScreen'));
   }
 }
