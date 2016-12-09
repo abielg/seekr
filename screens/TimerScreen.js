@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   TextInput,
   TouchableHighlight,
-  TouableWithoutFeedback  
+  TouchableWithoutFeedback  
 } from 'react-native';
 
 import {

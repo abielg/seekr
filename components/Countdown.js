@@ -35,10 +35,10 @@ var CountDown = React.createClass({
           <View
               style={[styles.wrapper,this.props.buttonStyle]}
               >
-            <TouchableWithoutFeedback
+            <View
                 >
               <Text style={[style]}>{this.props.text}{this.state.time}</Text>
-            </TouchableWithoutFeedback>
+            </View>
           </View>
     } else {
       component =
