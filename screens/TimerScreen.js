@@ -32,23 +32,23 @@ componentDidMount () {
 
   render() {
     return (
-        <View style={styles.container}>
-          <View style={styles.background}>  
-            <Text style={styles.title}> Eesha has 1 minute to accept your request.  </Text>
-				<CountDown
-				  text={':'} //default '' 
-				  time={59} //default 60 
-				  buttonStyle={{padding:0, bottom: 190}}
-				  textStyle={{color:'black', fontSize: 36}} //default black 
-				  //disabledTextStyle={{color:'gray'}} //default gray 
-				/>           
-		 	<TouchableOpacity style={styles.cancelButton} onPress={this.goToMainMap}>
-              <Text style={{color: 'white'}}>X</Text>
-            </TouchableOpacity>
-            <Text style={styles.cancel}> Cancel </Text>
-          </View> 
-
-        </View>      
+      <View style={styles.container}>
+        <View style={styles.background}>  
+          <Text style={styles.title1}> Eesha has</Text>
+  				<CountDown
+  				  text={':'} //default '' 
+  				  time={59} //default 60 
+  				  buttonStyle={styles.countdown}
+  				  textStyle={{color:'black', fontSize: 36}} //default black 
+            style={styles.countdown}
+  				/>
+          <Text style={styles.title2}>to accept your request.</Text>
+   	      <TouchableOpacity style={styles.cancelButton} onPress={this.goToMainMap}>
+            <Text style={{color: 'white'}}>X</Text>
+          </TouchableOpacity>
+          <Text style={styles.cancel}> Cancel </Text>
+        </View> 
+      </View>      
     );
   }
 
@@ -61,26 +61,40 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
+  countdown : {
+    padding:80, 
+    bottom: 20,
+    borderWidth: 5,
+    borderRadius: 140,
+    borderColor: '#FF8218'
+  },
   spinner: {
     marginBottom: 100,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  title : {
+  title1 : {
     flex: 8,
     color: 'black',
-    fontSize: 14,
+    fontSize: 28,
+    fontFamily: 'Avenir',
     margin: 0,
-    top: 100
+    top: 110
+  },
+  title2 : {
+    flex: 8,
+    color: 'black',
+    fontSize: 28,
+    fontFamily: 'Avenir',
+    margin: 0,
+    top: 30
   },
   cancel : {
-    flex: 1,
-    color: 'white',
+    color: 'black',
     fontSize: 15,
     margin: 0,
-    bottom: 20
+    bottom: 35
   },
 
   background : {
@@ -93,9 +107,9 @@ const styles = StyleSheet.create({
   cancelButton : {
     borderWidth: 1,
     borderColor: 'white',
-    height:20,
-    width: 20,
-    borderRadius: 64,
+    height:40,
+    width: 40,
+    borderRadius: 20,
     margin: 0,
     backgroundColor: '#FF8217',
     flex: 0,

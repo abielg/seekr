@@ -28,7 +28,7 @@ class AppContainer extends React.Component {
     return (
       <View style={styles.container}>
         <NavigationProvider router={Router}>
-          <StackNavigation id="root" initialRoute={Router.getRoute('settings')} />
+          <StackNavigation id="root" initialRoute={Router.getRoute('TimerScreen')} />
         </NavigationProvider>
       </View>
     );

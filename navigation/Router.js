@@ -49,6 +49,6 @@ export default createRouter(() => ({
   TripLog: () => TripLog,
   MenuView: () => MenuView,
   touristProfile: () => TouristProfile,
-  settings: () => Settings
+  settings: () => Settings,
   touristMapView: () => TouristMapView,
 }));
