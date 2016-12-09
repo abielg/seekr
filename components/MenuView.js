@@ -34,12 +34,14 @@ export default class MenuView extends React.Component {
             </Text>
           </View>
           <View style={styles.menuItemProfileMini}>
-            <Text style={styles.miniText}> 
-              Edit Profile 
-            </Text>
+            <TouchableOpacity onPress={this.goToEdit}>
+              <Text style={styles.miniText}> 
+                Edit Profile 
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.line}/>
-          <TouchableOpacity style={styles.menuItem} onPress = {this.goToPayments}>
+          <TouchableOpacity style={styles.menuItem} onPress = {this._goToPayments}>
            <Icon style={{paddingRight:10}} name="money" size={25} color="#FFF" />
            <Text style={styles.text}> Payments </Text>
           </TouchableOpacity>
@@ -49,10 +51,10 @@ export default class MenuView extends React.Component {
            <Text style={styles.text}>  Trips </Text>
           </TouchableOpacity>
           <View style={styles.line}/>
-          <View style={styles.menuItem}>
+          <TouchableOpacity style={styles.menuItem} onPress = {this.goToSettings}>
             <Icon style={{paddingRight:10}} name="gear" size={25} color="#FFF" />
            <Text style={styles.text}> Settings </Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.line}/>
           <View style={styles.menuItemBlankSpace} />
           <View style={styles.menuItemFooter}>
@@ -71,17 +73,27 @@ export default class MenuView extends React.Component {
 
     );
   }
+  _goToPayments = () => {
+    this.props.navigator.push(Router.getRoute('paymentScreen'));
+  }
+
+  goToTrips = () => {
+    this.props.navigator.push(Router.getRoute('TripLog'));
+  }
+
+  goToSettings = () => {
+    this.props.navigator.push(Router.getRoute('settings'));
+  }
+
+  goToEdit = () => {
+    this.props.navigator.push(Router.getRoute('signup'));
+  }
 }
 
-goToPayments = () => {
-    this.props.navigator.push(Router.getRoute('paymentScreen'));
-    console.log("hi!");
-      }
 
 
-goToTrips = () => {
-    this.props.navigator.push(Router.getRoute('tripSummaryScreen'));
-  }
+
+
 
 
 const styles= StyleSheet.create({
@@ -99,6 +111,8 @@ const styles= StyleSheet.create({
     fontFamily: 'Avenir',
     fontSize: 10,
     color: 'white',
+    paddingTop: 5,
+    paddingBottom: 5
   },
   text: {
     fontFamily: 'Avenir',

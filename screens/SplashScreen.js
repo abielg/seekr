@@ -31,7 +31,7 @@ export default class SplashScreen extends React.Component {
               <Text style={{color: 'white'}}>Sign Up</Text>
             </TouchableOpacity>
             <View style={{flex: 1,}}/>
-            <TouchableOpacity style={styles.rightButton}>
+            <TouchableOpacity style={styles.rightButton} onPress={this.goToMap}>
               <Text>Log In</Text>
             </TouchableOpacity>
             <View style={{flex: 2,}}/>
@@ -44,6 +44,10 @@ export default class SplashScreen extends React.Component {
 
   _goToSignup = () => {
     this.props.navigator.push(Router.getRoute('signup'));
+  }
+
+  goToMap = () => {
+    this.props.navigator.push(Router.getRoute('MainMap'));
   }
 }
 

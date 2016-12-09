@@ -33,28 +33,27 @@ render() {
       <View style={styles.container}>
         <View>
           <Toolbar navigator={this.props.navigator} left='<' title='Adventure Log' />
-          <TouchableOpacity onPress={this.gotoTripSummary}>
+          <TouchableOpacity onPress={this._goToTripSummary}>
             <Image 
               source={require('../assets/trip1.png')}
               style ={{ margin: 0, flex: 1, justifyContent: 'center', left: 25, top: 10, fontFamily: 'Avenir'}}
             />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this._goToTripSummary}>
            <Image 
               source={require('../assets/trip2.png')}
               style ={{ margin: 0, flex: 1, justifyContent: 'center', left: 25, top: 40, fontFamily: 'Avenir'}}
             />
           </TouchableOpacity>
         </View>
-        
-
       </View>
-
-
     );
   }
 
-gotoTripSummary = () => {
+  _goToTripSummary = () => {
     this.props.navigator.push(Router.getRoute('tripSummaryScreen'));
   }
+    
 }
 
 const styles = StyleSheet.create({

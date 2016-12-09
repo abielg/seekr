@@ -22,6 +22,9 @@ import OnTrip from '../screens/OnTrip';
 import localSignup from '../screens/localSignup';
 import TripLog from '../screens/TripLog';
 import MenuView from '../components/MenuView';
+import TouristProfile from '../screens/TouristProfile';
+import Settings from '../screens/Settings';
+import TouristMapView from '../components/TouristMapView';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -44,5 +47,8 @@ export default createRouter(() => ({
   OnTrip: () => OnTrip,
   localSignup: () => localSignup,
   TripLog: () => TripLog,
-  MenuView: () => MenuView
+  MenuView: () => MenuView,
+  touristProfile: () => TouristProfile,
+  settings: () => Settings,
+  touristMapView: () => TouristMapView,
 }));

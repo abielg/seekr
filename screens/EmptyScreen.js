@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Router from '../navigation/Router';
 import Drawer from 'react-native-drawer';
 import MenuView from '../components/MenuView';
+import TouristMapView from '../components/TouristMapView';
 
 import {
   StyleSheet,
@@ -33,7 +34,7 @@ export default class EmptyScreen extends React.Component {
         >
         <View style={styles.container}>
           <Toolbar navigator={this.props.navigator} left='Hamburger' title='Rando Screen' onPress={()=>{this._drawer.open()}} />
-          <View style={styles.overlay}/>
+          <TouristMapView/>
         </View>
       </Drawer>
     )
@@ -46,8 +47,6 @@ const styles = StyleSheet.create({
   },
   overlay:{
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'purple',
   },
 });
