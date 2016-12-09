@@ -25,10 +25,11 @@ export default class TouristFeed extends React.Component {
     this.state = { statusIsFeed: true };
   }
 
-  _changeStatus(){
-    this.setState({ statusIsFeed: !this.state.statusIsFeed });
+  _changeStatus(pressed){
+    if ((this.state.statusIsFeed && pressed != 'list') || (!this.state.statusIsFeed && pressed != 'map')){
+      this.setState({ statusIsFeed: !this.state.statusIsFeed });
+    }
   }
-
 
   render() {
     return (
@@ -38,11 +39,11 @@ export default class TouristFeed extends React.Component {
           <Toolbar navigator={this.props.navigator} left='<' title='Tourists Near You' />
           <View style={styles.buttonView}> 
             <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.buttonSelected} onPress={this._changeStatus.bind(this)}>
-                <Text style={styles.textSelected}>List</Text>
+              <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonSelected : styles.buttonUnselected} onPress={this._changeStatus.bind(this, 'list')}>
+                <Text style={this.state.statusIsFeed ? styles.textSelected : styles.textUnselected}>List</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonUnselected} onPress={this._changeStatus.bind(this)}>
-                <Text style={styles.textUnselected}>Map</Text>
+              <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonUnselected : styles.buttonSelected} onPress={this._changeStatus.bind(this, 'map')}>
+                <Text style={this.state.statusIsFeed ? styles.textUnselected : styles.textSelected}>Map</Text>
               </TouchableOpacity>
             </View>
           </View>  
@@ -118,7 +119,6 @@ const styles = StyleSheet.create({
     height: 30,
     width: screenWidth * 0.2,
     backgroundColor: 'white',
-
     justifyContent: 'center',
     alignItems: 'center'
   },
