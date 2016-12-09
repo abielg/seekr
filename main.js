@@ -10,6 +10,7 @@ import TimerScreen from './screens/TimerScreen';
 import AcceptedScreen from './screens/AcceptedScreen';
 import OnTheWay from './screens/OnTheWay';
 import TripPlayback from './screens/TripPlayback';
+import TripLog from './screens/TripLog';
 
 import {
   NavigationProvider,
@@ -27,7 +28,7 @@ class AppContainer extends React.Component {
     return (
       <View style={styles.container}>
         <NavigationProvider router={Router}>
-          <StackNavigation id="root" initialRoute={Router.getRoute('MainMap')} />
+          <StackNavigation id="root" initialRoute={Router.getRoute('emptyScreen')} />
         </NavigationProvider>
       </View>
     );

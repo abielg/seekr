@@ -33,7 +33,7 @@ export default class FindingScreen extends React.Component {
           <View style={styles.background}>  
             <Text style={styles.title}> Eesha has accepted! </Text>
             <Image source={require('../assets/abielandeesha.png')} style ={{bottom: 0 }}/>
-            <Text style={{flex: 8,color: 'black',fontSize: 18,margin: 0,top: 38}}> Going on an adventure with Eesha </Text>
+            <Text style={{flex: 8,color: 'black',fontFamily: 'Avenir', fontSize: 18,margin: 0,top: 38}}> Going on an adventure with Eesha </Text>
 
 
             <TouchableOpacity style={styles.continueButton} onPress={this._goToOnTheWay}>
@@ -53,6 +53,7 @@ _goToOnTheWay = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontFamily: 'Avenir'
   },
 
   spinner: {
@@ -66,7 +67,8 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 32,
     margin: 0,
-    top: 50
+    top: 50,
+    fontFamily: 'Avenir'
   },
 
   cancel : {
@@ -95,7 +97,8 @@ const styles = StyleSheet.create({
     flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    bottom: 40
+    bottom: 4,
+    fontFamily: 'Avenir'
   },
 
   

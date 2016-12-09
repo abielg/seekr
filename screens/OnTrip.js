@@ -63,7 +63,7 @@ render() {
             />  
 
         
-      <Text style={{fontSize: 40, top: 20, backgroundColor: 'rgba(0,0,0,0)'}}>Where to next?</Text>
+      <Text style={{fontSize: 40, fontFamily: 'Avenir', top: 20, backgroundColor: 'rgba(0,0,0,0)'}}>Where to next?</Text>
       
       <View style={{margin: 10, width: 100}}/>
             <TextInput style={styles.textInput}/>
@@ -75,16 +75,16 @@ render() {
         />
       </TouchableOpacity>
       
-      <Text style={{fontSize: 20, top: 265, alignItems: 'center'}}>Suggested Next Stops</Text>
+      <Text style={{fontSize: 24, top: 260, fontFamily: 'Avenir', alignItems: 'center'}}>Suggested Next Stops</Text>
         
           <TouchableOpacity onPress={this._handler.bind(this)}>
-            <Image source={require('../assets/squaresushi.png')} style ={{ width: 140, height: 140, borderRadius: 10, top: 275, left: -88, }}/> 
-            <Text style={{top: 240, left: -65, color: 'white', fontSize: 22, backgroundColor: 'rgba(0,0,0,0)'}}>Sushirrito</Text>
+            <Image source={require('../assets/squaresushi.png')} style ={{ width: 140, height: 135, borderRadius: 10, top: 265, left: -88, }}/> 
+            <Text style={{top: 235, left: -65, color: 'white', fontFamily: 'Avenir', fontWeight: 'bold', fontSize: 22, backgroundColor: 'rgba(0,0,0,0)'}}>Sushirrito</Text>
             
           </TouchableOpacity>
           <TouchableOpacity>
-            <Image source={require('../assets/offthegrid.png')} style ={{ width: 140, height: 140, borderRadius: 10, top: 108, left: 80}}/> 
-            <Text style={{top: 70, left: 93, color: 'white', fontSize: 22, backgroundColor: 'rgba(0,0,0,0)'}}>Off the Grid</Text>
+            <Image source={require('../assets/offthegrid.png')} style ={{ width: 140, height: 135, borderRadius: 10, top: 100, left: 80}}/> 
+            <Text style={{top: 70, left: 88, color: 'white', fontFamily: 'Avenir', fontWeight: 'bold', fontSize: 22, backgroundColor: 'rgba(0,0,0,0)'}}>Off the Grid</Text>
           </TouchableOpacity>
         </View>
 
