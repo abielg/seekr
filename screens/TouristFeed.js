@@ -6,11 +6,7 @@ import ProfileCard from '../components/ProfileCard';
 import MenuView from '../components/MenuView';
 import Dimensions from 'Dimensions';
 import Drawer from 'react-native-drawer';
-<<<<<<< 2bb922fef862efc32c85323567879532cd5261de
-
-=======
 import TouristMapView from '../components/TouristMapView';
->>>>>>> Tourist map view
 
 import {
   StyleSheet,
