@@ -37,7 +37,7 @@ render() {
     return (
       <View style={styles.container}>
         <View>
-          <Toolbar navigator={this.props.navigator} left='<' title='Seekr' />
+          <Toolbar navigator={this.props.navigator} left='Hamburger' title='Seekr' />
         </View>
         <View style={{alignItems:'center'}}>
           <MapView

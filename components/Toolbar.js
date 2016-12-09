@@ -1,6 +1,7 @@
 import Exponent from 'exponent';
 import React from 'react';
 import Hamburger from '../components/Hamburger';
+import Router from '../navigation/Router';
 import {
   StyleSheet,
   Text,
@@ -28,13 +29,17 @@ export default class Toolbar extends React.Component{
               </View>}
 
               <Text style={styles.toolbarTitle}>{this.props.title}</Text>
-              <Text style={styles.toolbarButton}>{this.props.right}</Text>
+              <Text style={styles.toolbarButton} onPress={this.goToMap}>{this.props.right}</Text>
           </View>
           </View>
         );
     }
     _goBack = () => {
       this.props.navigator.pop();
+    }
+
+    goToMap = () => {
+      this.props.navigator.push(Router.getRoute('MainMap'));
     }
 }
 
