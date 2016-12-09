@@ -37,7 +37,7 @@ export default class TripPlayback extends React.Component {
 
   pics = [require('../assets/sf-baybridge.jpg'), require('../assets/sf-baker-beach.jpg'),
           require('../assets/sf-chinatown.jpg'), require('../assets/sf-mission.jpg')];
-  places = ['Bay Bridge', 'Sushirrito', 'Bar Basic', 'The Mission'];
+  places = ['Bay Bridge', 'Baker Beach', 'Chinatown', 'The Mission'];
   
   render() {
     return (

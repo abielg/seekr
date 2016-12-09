@@ -12,6 +12,7 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  StatusBar
 } from 'react-native';
 
 export default class Settings extends React.Component {
@@ -28,6 +29,7 @@ export default class Settings extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle='dark-content'/>
         <Toolbar navigator={this.props.navigator} left='<' title='Settings' />
         <View style={styles.flexwrapper}>
           <View style={{flex:1}}/>
@@ -79,32 +81,38 @@ const styles = StyleSheet.create({
 
   text : {
     fontFamily: 'Avenir',
-    fontSize: 16,
+    fontSize: 20,
     marginRight: 10
   },
   toggleButtonOn : {
-    width: 40,
+    width: 60,
+    height: 40,
     backgroundColor: '#FF8218',
     borderRadius:4,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    top: -5
   },
   toggleButtonOff : {
-    width: 40,
+    width: 60,
+    height: 40,
     backgroundColor: 'white',
     borderWidth: 1,
     borderColor: '#FF8218',
     borderRadius:4,
     justifyContent: 'center',
     alignItems: 'center',
+    top: -5
   },
   onText : {
     color: 'white',
-    fontFamily: 'Avenir'
+    fontFamily: 'Avenir',
+    fontSize: 20
   },
    offText : {
     color: 'black',
-    fontFamily: 'Avenir'
+    fontFamily: 'Avenir',
+    fontSize: 20
   },
   logout : {
     backgroundColor: '#9D0202',

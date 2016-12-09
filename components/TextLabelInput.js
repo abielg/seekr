@@ -17,6 +17,7 @@ export default class TextLabelInput extends React.Component {
              style = {this.inputStyle(this.props.height)}
              placeholder = {this.props.placeholder}
              autoCapitalize = 'none'
+             multiline = {true}
           />
       </View>
     );
@@ -28,8 +29,6 @@ export default class TextLabelInput extends React.Component {
       height: heightSpek,
       flex: 1,
       fontSize: 16,
-      justifyContent: 'center',
-      alignItems: 'center'
     }
   }
 

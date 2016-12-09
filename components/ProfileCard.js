@@ -111,7 +111,7 @@ var styles = StyleSheet.create({
     marginLeft: 10
   },
   bio : {
-    fontSize: 10,
+    fontSize: 11,
     fontFamily: 'Avenir',
     marginLeft: 10
   },

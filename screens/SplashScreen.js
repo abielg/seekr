@@ -28,11 +28,11 @@ export default class SplashScreen extends React.Component {
           <View style={{flex: 2, flexDirection: 'row'}}>
             <View style={{flex: 2,}}/>
             <TouchableOpacity style={styles.leftButton} onPress={this._goToSignup}>
-              <Text style={{color: 'white'}}>Sign Up</Text>
+              <Text style={{color: 'white', fontFamily: 'Avenir'}}>Sign Up</Text>
             </TouchableOpacity>
             <View style={{flex: 1,}}/>
             <TouchableOpacity style={styles.rightButton} onPress={this.goToMap}>
-              <Text>Log In</Text>
+              <Text style={{fontFamily: 'Avenir'}}>Log In</Text>
             </TouchableOpacity>
             <View style={{flex: 2,}}/>
           </View>
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Avenir'
   },
 
   rightButton : {
@@ -96,7 +95,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Avenir'
   }
 
 });
