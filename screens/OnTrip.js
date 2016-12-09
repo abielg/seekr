@@ -115,7 +115,6 @@ render() {
                 Off the Grid
               </Text>
             </TouchableOpacity>
-
           </View>
         </View>
       </View>
@@ -138,8 +137,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     fontSize: 18,
     backgroundColor: 'white',
-    paddingRight: 20,
-    paddingLeft: 20,
+    width: 150,
+    //paddingRight: 20,
+    paddingLeft: 30,
     borderWidth: 1,
     borderColor: 'black',
   },
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     // Minus height/2 to get center
     top: (Dimensions.get('window').height * 0.1),
     left: (Dimensions.get('window').width/2) - Dimensions.get('window').width * 0.475,
-    zIndex: 2,
+    //zIndex: 2,
 
   },
   container: {
