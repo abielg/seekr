@@ -6,7 +6,11 @@ import ProfileCard from '../components/ProfileCard';
 import MenuView from '../components/MenuView';
 import Dimensions from 'Dimensions';
 import Drawer from 'react-native-drawer';
+<<<<<<< 2bb922fef862efc32c85323567879532cd5261de
 
+=======
+import TouristMapView from '../components/TouristMapView';
+>>>>>>> Tourist map view
 
 import {
   StyleSheet,
@@ -45,27 +49,25 @@ export default class TouristFeed extends React.Component {
       >
         <View style={styles.container}>
           <StatusBar barStyle='dark-content'/>
-          <View>
-            <Toolbar navigator={this.props.navigator} left='Hamburger' title='Tourists Near You' onPress={()=>{this._drawer.open()}}/>
-            <View style={styles.buttonView}> 
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonSelected : styles.buttonUnselected} onPress={this._changeStatus.bind(this, 'list')}>
-                  <Text style={this.state.statusIsFeed ? styles.textSelected : styles.textUnselected}>List</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonUnselected : styles.buttonSelected} onPress={this._changeStatus.bind(this, 'map')}>
-                  <Text style={this.state.statusIsFeed ? styles.textUnselected : styles.textSelected}>Map</Text>
-                </TouchableOpacity>
-              </View>
-            </View>  
-            {this.state.statusIsFeed ? this._renderFeed() : this._renderMap()}       
-          </View>
+          <Toolbar navigator={this.props.navigator} left='Hamburger' title='Tourists Near You' onPress={()=>{this._drawer.open()}}/>
+          <View style={styles.buttonView}> 
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonSelected : styles.buttonUnselected} onPress={this._changeStatus.bind(this, 'list')}>
+                <Text style={this.state.statusIsFeed ? styles.textSelected : styles.textUnselected}>List</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonUnselected : styles.buttonSelected} onPress={this._changeStatus.bind(this, 'map')}>
+                <Text style={this.state.statusIsFeed ? styles.textUnselected : styles.textSelected}>Map</Text>
+              </TouchableOpacity>
+            </View>
+          </View>  
+          {this.state.statusIsFeed ? this._renderFeed() : this._renderMap()}       
         </View>
       </Drawer>  
     );
   }
 
   _renderMap = () => {
-    return(<Text>Hi!</Text>);
+    return(<TouristMapView navigator={this.props.navigator}/>);
   }
 
   _renderFeed = () => {
@@ -105,6 +107,9 @@ export default class TouristFeed extends React.Component {
 
 
 const styles = StyleSheet.create({
+  container:{
+    flex:1,
+  },
   subtitle : {
     fontFamily: 'Avenir',
 
