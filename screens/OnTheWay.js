@@ -26,10 +26,11 @@ import DropDown, {
 
 export default class roads extends React.Component {
 
-
-
-
-
+componentDidMount () {
+    setTimeout(() => {
+    this.props.navigator.push(Router.getRoute('OnTrip'));
+    }, 5000);
+  }
 
 render() {
     
@@ -50,20 +51,20 @@ render() {
             source={require('../assets/eesha.png')}
             style={{height: 85, width: 132, top: 60}}
           /> 
-          <Text style={{fontSize: 20, top: 240, alignItems: 'center'}}>Eesha is on her way!</Text>
-          <Text style={{fontSize: 12, top: 250, alignItems: 'center'}}>Destination TBD upon arrival</Text>
-          <Text style={{fontSize: 20, top: 260, alignItems: 'center', color: 'orange'}}>3 minutes</Text>
+          <Text style={{fontSize: 20, top: 340, alignItems: 'center'}}>Eesha is on her way!</Text>
+          <Text style={{fontSize: 12, top: 350, alignItems: 'center'}}>Destination TBD upon arrival</Text>
+          <Text style={{fontSize: 20, top: 360, alignItems: 'center', color: 'orange'}}>3 minutes</Text>
           <TouchableOpacity style={styles.cancelButton} onPress={this._goToMainMap}>
               <Text style={{color: 'white'}}>X</Text>
           </TouchableOpacity>
-          <Text style={{fontSize: 12, bottom: -310, color: 'orange'}}> Cancel </Text>
+          <Text style={{fontSize: 12, bottom: -410, color: 'orange'}}> Cancel </Text>
           <TouchableOpacity>
-            <Image source={require('../assets/phone1.png')} style ={{ width: 45, height: 60, top: 200, left: -110, zIndex: 2}}/> 
-            <Text style={{top: 210, left: -95}}>Call</Text>
+            <Image source={require('../assets/phone1.png')} style ={{ width: 45, height: 60, top: 300, left: -110, zIndex: 2}}/> 
+            <Text style={{top: 310, left: -95}}>Call</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Image source={require('../assets/message1.png')} style ={{ width: 60, height: 60, top: 125, left: 110, zIndex: 2}}/> 
-            <Text style={{top: 130, left: 110}}>Message</Text>
+            <Image source={require('../assets/message1.png')} style ={{ width: 60, height: 60, top: 225, left: 110, zIndex: 2}}/> 
+            <Text style={{top: 230, left: 110}}>Message</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    height: 310,
+    height: 400,
     width: 400
   },
   cancelButton : {
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     borderRadius: 64,
     margin: 0,
     backgroundColor: '#FF8217',
-    bottom: -300,
+    bottom: -400,
     alignItems: 'center',
     justifyContent: 'center',
   },

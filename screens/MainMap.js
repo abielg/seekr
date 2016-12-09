@@ -61,7 +61,7 @@ render() {
           showsPointsofInterest={true}
           region={{latitude: 37.4275, longitude: -122.1697, latitudeDelta: .0050, longitudeDelta: .0050}}
           />  
-      <TouchableOpacity onPress={this.goToSignup}>
+      <TouchableOpacity onPress={this.goTolocalFeed}>
         <Image
           source={require('../assets/startpt1.png')}
           style={{height: 50, width: 78}}
@@ -115,8 +115,9 @@ render() {
     );
   
 }
-_goToSignup = () => {
-    this.props.navigator.push(Router.getRoute('signup'));
+goTolocalFeed = () => {
+    console.log("hey eesha!");
+    this.props.navigator.push(Router.getRoute('localFeed'));
   }
 }
 

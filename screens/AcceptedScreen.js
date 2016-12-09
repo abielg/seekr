@@ -31,12 +31,12 @@ export default class FindingScreen extends React.Component {
     return (
         <View style={styles.container}>
           <View style={styles.background}>  
-            <Text style={styles.title}> Abiel has accepted! </Text>
+            <Text style={styles.title}> Eesha has accepted! </Text>
             <Image source={require('../assets/abielandeesha.png')} style ={{bottom: 0 }}/>
-            <Text style={{flex: 8,color: 'black',fontSize: 18,margin: 0,top: 38}}> Going on an adventure with Abiel </Text>
+            <Text style={{flex: 8,color: 'black',fontSize: 18,margin: 0,top: 38}}> Going on an adventure with Eesha </Text>
 
 
-            <TouchableOpacity style={styles.continueButton} onPress={this._goToSignup}>
+            <TouchableOpacity style={styles.continueButton} onPress={this._goToOnTheWay}>
               <Text style={{color: 'white'}}>Continue</Text>
             </TouchableOpacity>
           </View> 
@@ -45,8 +45,8 @@ export default class FindingScreen extends React.Component {
     );
   }
 
-_goToSignup = () => {
-    this.props.navigator.push(Router.getRoute('MainMap'));
+_goToOnTheWay = () => {
+    this.props.navigator.push(Router.getRoute('OnTheWay'));
   }
 }
 
