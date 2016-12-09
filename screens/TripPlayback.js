@@ -9,7 +9,7 @@ import {
  import {DragContainer, Draggable, DropZone} from 'react-native-drag-drop'
 
 
-class MyDropZoneContent extends React.Component {
+export default class TripPlayback extends React.Component {
   componentWillReceiveProps({dragOver}) {
     if (dragOver !== this.props.dragOver) LayoutAnimation.easeInEaseOut();
   }
