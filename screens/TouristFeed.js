@@ -17,11 +17,11 @@ import {
 
 var screenHeight = Dimensions.get('window').height;
 
-export default class LocalFeed extends React.Component {
+export default class TouristFeed extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Toolbar navigator={this.props.navigator} left='<' title='Tourists Near You' />
+        <Toolbar navigator={this.props.navigator} left='<' title='Locals Near You' />
         <View style={styles.wrapper}>
           <View style={{flex: 1}}/>
           <View style={styles.mainSection}>  

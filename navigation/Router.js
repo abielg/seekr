@@ -17,6 +17,7 @@ import TimerScreen from '../screens/TimerScreen';
 import AcceptedScreen from '../screens/AcceptedScreen';
 import OnTheWay from '../screens/OnTheWay';
 import TripSummaryScreen from '../screens/TripSummaryScreen';
+import TouristFeed from '../screens/TouristFeed';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -34,4 +35,5 @@ export default createRouter(() => ({
   AcceptedScreen: () => AcceptedScreen,
   OnTheWay: () => OnTheWay,
   tripSummaryScreen: () => TripSummaryScreen,
+  touristFeed: () => TouristFeed
 }));
