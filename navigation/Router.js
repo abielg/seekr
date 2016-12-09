@@ -10,6 +10,7 @@ import LocalFeed from '../screens/LocalFeed';
 import EmptyScreen from '../screens/EmptyScreen';
 import LocalProfile from  '../screens/LocalProfile';
 import RateTripScreen from '../screens/RateTripScreen';
+import TripPlayback from '../screens/TripPlayback';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -20,4 +21,5 @@ export default createRouter(() => ({
   emptyScreen: () => EmptyScreen,
   localProfile: () => LocalProfile,
   rateTripScreen: () => RateTripScreen,
+  tripPlayback: () => TripPlayback,
 }));
