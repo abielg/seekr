@@ -59,27 +59,32 @@ export default class RateTripScreen extends React.Component {
 
   render () {
     return (
-      <View style={styles.bigGutterContainer}>
-        <View style={styles.sideGutter}/>
-        <View style={styles.container}>
-          <Text style={styles.rateText}> Rate </Text>
-          <View style={styles.starContainer}>
-            {this._renderStars()}
+      <View style={styles.bigContainer}>
+        <Toolbar navigator={this.props.navigator} title='Trip Summary' />
+        <View style={styles.bigGutterContainer}>
+          <View style={styles.sideGutter}/>
+          <View style={styles.container}>
+            <Text style={styles.rateText}> Rate </Text>
+            <View style={styles.starContainer}>
+              {this._renderStars()}
+            </View>
+            <Text style={styles.rateText}> Leave a Review </Text>
+            <TextLabelInput removeLabel={true}  height={200} />
+            <View style={{alignItems:'center'}}>
+              <Text style={styles.doneLink}> Done </Text>
+            </View>
           </View>
-          <Text style={styles.rateText}> Leave a Review </Text>
-          <TextLabelInput removeLabel={true}  height={200} />
-          <View style={{alignItems:'center'}}>
-            <Text style={styles.doneLink}> Done </Text>
-          </View>
+          <View style={styles.sideGutter}/>
         </View>
-        <View style={styles.sideGutter}/>
       </View>
-
     )
   }
 }
 
 const styles = StyleSheet.create({
+  bigContainer: {
+    flex: 1,
+  },
   starContainer:{
     flexDirection: 'row',
     paddingBottom: 50,
