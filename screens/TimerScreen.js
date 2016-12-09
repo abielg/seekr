@@ -2,6 +2,7 @@ import Exponent from 'exponent';
 import React from 'react';
 import Toolbar from '../components/Toolbar';
 import Router from '../navigation/Router';
+import TouristMapView from '../components/TouristMapView';
 import {
   StyleSheet,
   Text,
