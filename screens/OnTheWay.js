@@ -51,20 +51,20 @@ render() {
             source={require('../assets/eesha.png')}
             style={{height: 85, width: 132, top: 60}}
           /> 
-          <Text style={{fontSize: 20, top: 340, alignItems: 'center'}}>Eesha is on her way!</Text>
-          <Text style={{fontSize: 12, top: 350, alignItems: 'center'}}>Destination TBD upon arrival</Text>
-          <Text style={{fontSize: 20, top: 360, alignItems: 'center', color: 'orange'}}>3 minutes</Text>
+          <Text style={{fontSize: 20, top: 340, alignItems: 'center', fontFamily: 'Avenir'}}>Eesha is on her way!</Text>
+          <Text style={{fontSize: 12, top: 350, alignItems: 'center', fontFamily: 'Avenir'}}>Destination TBD upon arrival</Text>
+          <Text style={{fontSize: 20, top: 360, alignItems: 'center', color: 'orange', fontFamily: 'Avenir'}}>3 minutes</Text>
           <TouchableOpacity style={styles.cancelButton} onPress={this._goToMainMap}>
               <Text style={{color: 'white'}}>X</Text>
           </TouchableOpacity>
-          <Text style={{fontSize: 12, bottom: -410, color: 'orange'}}> Cancel </Text>
+          <Text style={{fontSize: 12, bottom: -410, color: 'orange', fontFamily: 'Avenir'}}> Cancel </Text>
           <TouchableOpacity>
             <Image source={require('../assets/phone1.png')} style ={{ width: 45, height: 60, top: 300, left: -110, zIndex: 2}}/> 
-            <Text style={{top: 310, left: -95}}>Call</Text>
+            <Text style={{top: 310, left: -95, fontFamily: 'Avenir'}}>Call</Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Image source={require('../assets/message1.png')} style ={{ width: 60, height: 60, top: 225, left: 110, zIndex: 2}}/> 
-            <Text style={{top: 230, left: 110}}>Message</Text>
+            <Text style={{top: 230, left: 110, fontFamily: 'Avenir'}}>Message</Text>
           </TouchableOpacity>
         </View>
       </View>

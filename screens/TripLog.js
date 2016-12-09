@@ -36,11 +36,11 @@ render() {
           <TouchableOpacity onPress={this.gotoTripSummary}>
             <Image 
               source={require('../assets/trip1.png')}
-              style ={{ margin: 0, flex: 1, justifyContent: 'center', left: 25, top: 10}}
+              style ={{ margin: 0, flex: 1, justifyContent: 'center', left: 25, top: 10, fontFamily: 'Avenir'}}
             />
            <Image 
               source={require('../assets/trip2.png')}
-              style ={{ margin: 0, flex: 1, justifyContent: 'center', left: 25, top: 40}}
+              style ={{ margin: 0, flex: 1, justifyContent: 'center', left: 25, top: 40, fontFamily: 'Avenir'}}
             />
           </TouchableOpacity>
         </View>

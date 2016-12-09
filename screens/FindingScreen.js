@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     margin: 0,
-    top: 100
+    top: 100,
+    fontFamily: 'Avenir'
   },
 
   cancel : {
@@ -93,7 +94,9 @@ const styles = StyleSheet.create({
     flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    bottom: 40
+    bottom: 40,
+    fontFamily: 'Avenir'
+
   },
 
   

@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 60,
     margin: 0,
+    fontFamily: 'Avenir'
   },
 
   topArea : {
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'Avenir'
   },
 
   rightButton : {
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'Avenir'
   }
 
 });

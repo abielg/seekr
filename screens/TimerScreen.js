@@ -38,13 +38,13 @@ componentDidMount () {
 				  text={':'} //default '' 
 				  time={59} //default 60 
 				  buttonStyle={{padding:0, bottom: 190}}
-				  textStyle={{color:'black', fontSize: 36}} //default black 
+				  textStyle={{color:'black', fontSize: 36, fontFamily: 'Avenir'}} //default black 
 				  //disabledTextStyle={{color:'gray'}} //default gray 
 				/>           
 		 	<TouchableOpacity style={styles.cancelButton} onPress={this.goToMainMap}>
               <Text style={{color: 'white'}}>X</Text>
             </TouchableOpacity>
-            <Text style={styles.cancel}> Cancel </Text>
+            <Text style={styles.cancel, fontFamily: 'Avenir'}> Cancel </Text>
           </View> 
 
         </View>      
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     margin: 0,
     top: 100
+    fontFamily: 'Avenir'
   },
   cancel : {
     flex: 1,
