@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     //top: 0,
     //justifyContent: 'center',
     //alignItems: 'center',
-    zIndex:2,
+    //zIndex:2,
     backgroundColor: 'rgba(0.2, 0.2, 0.2, 0.7)',
     flexDirection: 'row',
     flex: 1,

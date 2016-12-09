@@ -16,6 +16,7 @@ import TimerScreen from '../screens/TimerScreen';
 import AcceptedScreen from '../screens/AcceptedScreen';
 import OnTheWay from '../screens/OnTheWay';
 import TripPlayback from '../screens/TripPlayback';
+import TripSummaryScreen from '../screens/TripSummaryScreen';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -32,4 +33,5 @@ export default createRouter(() => ({
   AcceptedScreen: () => AcceptedScreen,
   OnTheWay: () => OnTheWay,
   TripPlayback: () => TripPlayback,
+  tripSummaryScreen: () => TripSummaryScreen,
 }));
