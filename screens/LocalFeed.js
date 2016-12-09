@@ -27,7 +27,7 @@ export default class LocalFeed extends React.Component {
           <View style={styles.mainSection}>  
             <Text style={styles.subtitle}>Choose Adventure Buddy:</Text>
             <ScrollView style={{height: 600}}>
-              <ProfileCard name='Abiel Gutierrez' bio={this.bio1} pic={require('../assets/abiel.jpg')}
+              <ProfileCard name='Rodrigo Grabowsky' bio={this.bio1} pic={require('../assets/rodrigo.jpg')}
               age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4' action={this._goToLocalProfile}/>
               <ProfileCard name='Eesha Choudhari' bio={this.bio2} pic={require('../assets/eesha.jpg')}
               age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5' action={this._goToLocalProfile}/>

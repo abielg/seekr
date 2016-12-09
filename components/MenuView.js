@@ -13,7 +13,20 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+var screenHeight = Dimensions.get('window').height;
+var screenWidth = Dimensions.get('window').width;
+
 export default class MenuView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { statusIsLocal: true };
+  }
+
+  _changeStatus(pressed){
+    if ((this.state.statusIsLocal && pressed != 'local') || (!this.state.statusIsLocal && pressed != 'tourist')){
+      this.setState({ statusIsLocal: !this.state.statusIsLocal });
+    }
+  }
   render () {
     return (
       <View style={styles.overlay}>
@@ -58,15 +71,16 @@ export default class MenuView extends React.Component {
           <View style={styles.line}/>
           <View style={styles.menuItemBlankSpace} />
           <View style={styles.menuItemFooter}>
-            <Image
-              source={require('../assets/backpacker-running.png')}
-              style={{
-                height: 80,
-                width: 80,
-                marginRight:10,
-              }}
-            />
-            <Text style={styles.footerText}> Become a local? </Text>
+            <View style={styles.buttonView}> 
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity style={this.state.statusIsLocal ? styles.buttonSelected : styles.buttonUnselected} onPress={this._changeStatus.bind(this, 'local')}>
+                  <Text style={this.state.statusIsLocal ? styles.textSelected : styles.textUnselected}>Local</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={this.state.statusIsLocal ? styles.buttonUnselected : styles.buttonSelected} onPress={this._changeStatus.bind(this, 'tourist')}>
+                  <Text style={this.state.statusIsLocal ? styles.textUnselected : styles.textSelected}>Tourist</Text>
+                </TouchableOpacity>
+              </View>
+            </View>  
           </View>
         </View>
       </View>
@@ -156,11 +170,47 @@ const styles= StyleSheet.create({
     paddingLeft: 30,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center'
   },
   footerText:{
     fontFamily: 'Avenir',
     fontSize: 15,
     color: '#FF8217',
+  },
+    buttonSelected : {
+    height: 30,
+    width: screenWidth * 0.2,
+    backgroundColor: '#FF8218',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  buttonUnselected : {
+    height: 30,
+    width: screenWidth * 0.2,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textSelected : {
+    color: 'white',
+    fontFamily: 'Avenir'
+  },
+  textUnselected : {
+    color: 'black',
+    fontFamily: 'Avenir'
+  },
+  buttonContainer : {
+    flexDirection: 'row',
+    borderRadius: 4,
+    borderColor: '#FF8218',
+    borderWidth:1,
+    top: 10,
+    marginBottom: 10
+  },
+  buttonView : {
+    justifyContent:'center',
+    alignItems: 'center',
+    right: 15
   }
 }); 
 
