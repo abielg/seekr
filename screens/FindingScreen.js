@@ -33,7 +33,7 @@ export default class FindingScreen extends React.Component {
           <View style={styles.background}>  
             <Text style={styles.title}> Seeking a local who gets you... </Text>
             <Image source={require('../assets/loadinggif.png')} style ={{ width: 70, height: 70, bottom: 150, margin: 0 }}/>
-            <TouchableOpacity style={styles.cancelButton} onPress={this._goToSignup}>
+            <TouchableOpacity style={styles.cancelButton} onPress={this._popScreen}>
               <Text style={{color: 'white'}}>X</Text>
             </TouchableOpacity>
             <Text style={styles.cancel}> Cancel </Text>
@@ -43,8 +43,8 @@ export default class FindingScreen extends React.Component {
     );
   }
 
-_goToSignup = () => {
-    this.props.navigator.push(Router.getRoute('signup'));
+_popScreen = () => {
+    this.props.navigator.pop();
   }
 }
 

@@ -60,7 +60,7 @@ export default class ProfileReadyScreen extends React.Component {
     );
   }
   _goToSignup = () => {
-    this.props.navigator.push(Router.getRoute('signup'));
+    this.props.navigator.pop();
   }
   _goToMainMap = () => {
     this.props.navigator.push(Router.getRoute('MainMap'));

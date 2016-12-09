@@ -36,10 +36,7 @@ export default createRouter(() => ({
   AcceptedScreen: () => AcceptedScreen,
   OnTheWay: () => OnTheWay,
   tripSummaryScreen: () => TripSummaryScreen,
-<<<<<<< HEAD
-  touristFeed: () => TouristFeed
-=======
+  touristFeed: () => TouristFeed,
   TripPlayback: () => TripPlayback,
   OnTrip: () => OnTrip
->>>>>>> 32b40669e7b74c793ad60f3ec86249f2ee6f1986
 }));

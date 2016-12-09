@@ -15,6 +15,7 @@ import {
   ScrollView,
   TextInput,
   DatePickerIOS,
+  StatusBar
 } from 'react-native';
 
 import Hr from 'react-native-hr';
@@ -24,66 +25,69 @@ import Button from '../components/Button';
 export default class SignupScreen extends React.Component {
   render() {
     return (
-      <ScrollView style={styles.jumboContainer}>
-        <View style={styles.container}>
-          <View style={styles.gutter}/>
-          <View style={styles.mainColumn}>
-            <Toolbar navigator={this.props.navigator} left='<' title='Build Your Profile' />
-            <View style={{alignItems: 'center'}}>
-              <TouchableOpacity style={styles.addPic}>
-                <Text style={{fontSize:40}}>+</Text>
-              </TouchableOpacity>
-              <Text style={{marginBottom: 20, marginTop: 10, color:'#FF8217'}}>Profile Picture</Text>
+      <View style={{flex:1}}>
+        <StatusBar barStyle="dark-content"/>
+        <Toolbar navigator={this.props.navigator} left='<' title='Build Your Profile' />
+        <ScrollView style={styles.jumboContainer}>
+          <View style={styles.container}>
+            <View style={styles.gutter}/>
+            <View style={styles.mainColumn}>
+              <View style={{alignItems: 'center'}}>
+                <TouchableOpacity style={styles.addPic}>
+                  <Text style={{fontSize:40}}>+</Text>
+                </TouchableOpacity>
+                <Text style={{marginBottom: 20, marginTop: 10, color:'#FF8217'}}>Profile Picture</Text>
+              </View>
+              <TextLabelInput label='Name' placeholder='Johnny Appleseed' height={30} />
+              <TextLabelInput label='Birthday' placeholder='MM/DD/YYYY' height={30} />
+              <TextLabelInput label='Hometown' placeholder='United States' height={30} />
+              <TextLabelInput label='Language' placeholder='English' height={30} />
+              <TextLabelInput label='Text Bio' placeholder='Tell us about yourself.' height={90} />
             </View>
-            <TextLabelInput label='Name' placeholder='Johnny Appleseed' height={30} />
-            <TextLabelInput label='Birthday' placeholder='MM/DD/YYYY' height={30} />
-            <TextLabelInput label='Hometown' placeholder='United States' height={30} />
-            <TextLabelInput label='Language' placeholder='English' height={30} />
-            <TextLabelInput label='Text Bio' placeholder='Tell us about yourself.' height={90} />
+            <View style={styles.gutter}/>
           </View>
-          <View style={styles.gutter}/>
-        </View>
 
-        <View style={{margin: 20}}>
-          <Hr lineColor='#C5C2C2'/>
-        </View>
-
-        <View style={styles.container}>
-          <View style={styles.gutter}/>
-          <View style={styles.mainColumn}>
-            <Text style={styles.subtitle}>Tell us what experiences you seek!</Text>
-            
-            <View style={styles.gridRowContainer}>
-            <InterestButton title='Soccer' />
-            <InterestButton title='Food' />
-            <InterestButton title='Shopping' />
-            </View>
-            
-            <View style={styles.gridRowContainer}>
-            <InterestButton title='Photography' />
-            <InterestButton title='Museums' />
-            <InterestButton title='Nightlife' />
-            </View>
-
-            <View style={styles.gridRowContainer}>
-            <InterestButton title='Outdoors' />
-            <InterestButton title='Sightsee' />
-            <InterestButton title='Arts' />
-            </View>
-
-            <View style={styles.gridRowContainer}>
-            <InterestButton title='Sailing' />
-            <InterestButton title='College' />
-            <InterestButton title='Tennis' />
-            </View>
-
+          <View style={{margin: 20}}>
+            <Hr lineColor='#C5C2C2'/>
           </View>
-          <View style={styles.gutter}/>
-        </View>
 
-        <Button title='Continue' action={this._goToPayments}/>
+          <View style={styles.container}>
+            <View style={styles.gutter}/>
+            <View style={styles.mainColumn}>
+              <Text style={styles.subtitle}>Tell us what experiences you seek!</Text>
+              
+              <View style={styles.gridRowContainer}>
+              <InterestButton title='Soccer' />
+              <InterestButton title='Food' />
+              <InterestButton title='Shopping' />
+              </View>
+              
+              <View style={styles.gridRowContainer}>
+              <InterestButton title='Photography' />
+              <InterestButton title='Museums' />
+              <InterestButton title='Nightlife' />
+              </View>
 
-      </ScrollView>
+              <View style={styles.gridRowContainer}>
+              <InterestButton title='Outdoors' />
+              <InterestButton title='Sightsee' />
+              <InterestButton title='Arts' />
+              </View>
+
+              <View style={styles.gridRowContainer}>
+              <InterestButton title='Sailing' />
+              <InterestButton title='College' />
+              <InterestButton title='Tennis' />
+              </View>
+
+            </View>
+            <View style={styles.gutter}/>
+          </View>
+
+          <Button title='Continue' action={this._goToPayments}/>
+
+        </ScrollView>
+      </View>
     );
   }
 
@@ -112,6 +116,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   addPic: {
+    marginTop: 10,
     height: 70,
     width: 70,
     borderRadius: 35,

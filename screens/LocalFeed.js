@@ -21,7 +21,7 @@ export default class LocalFeed extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Toolbar navigator={this.props.navigator} left='<' title='Tourists Near You' />
+        <Toolbar navigator={this.props.navigator} left='<' title='Locals Near You' />
         <View style={styles.wrapper}>
           <View style={{flex: 1}}/>
           <View style={styles.mainSection}>  
@@ -30,9 +30,9 @@ export default class LocalFeed extends React.Component {
               <ProfileCard name='Abiel Gutierrez' bio={this.bio1} pic={require('../assets/abiel.jpg')}
               age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4' action={this._goToLocalProfile}/>
               <ProfileCard name='Eesha Choudhari' bio={this.bio2} pic={require('../assets/eesha.jpg')}
-              age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5'/>
+              age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5' action={this._goToLocalProfile}/>
               <ProfileCard name='Paul Ryan' bio={this.bio3} pic={require('../assets/paul.jpg')}
-              age='43 years old'interests={this.interests3} reviewsNum='20' numStars='4'/>
+              age='43 years old'interests={this.interests3} reviewsNum='20' numStars='4' action={this._goToLocalProfile}/>
             </ScrollView>
           </View>
           <View style={{flex: 1}}/> 
