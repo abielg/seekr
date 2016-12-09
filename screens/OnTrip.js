@@ -11,7 +11,8 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  NSLocationWhenInUseUsageDescription
+  NSLocationWhenInUseUsageDescription,
+  Dimensions
 } from 'react-native';
 import MapView from 'react-native-maps';
 import {
@@ -19,80 +20,104 @@ import {
 } from '@exponent/ex-navigation';
 import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
 
- 
 
-export default class roads extends React.Component {
+export default class OnTrip extends React.Component {
 
 
 constructor(props){
   super(props);
   this.state = {
-    followsUserLocation: true,
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta: 0,
-    longitudeDelta: 0
+    picIndex: 'normalMap',
   }
 }
 
-_handler() {
-  console.log("hi guys");
-  /*this.setState({
-    ...this.state,
-    //followsUserLocation: false,
-  });*/
-}
+_updatePic = (newPicIndex) => {
+  this.setState({
+    picIndex: newPicIndex,
+  });
+};
+
+_renderDstItem = () => {
+  if (this.state.picIndex === 'normalMap'){
+    return  "";
+  }
+  else if (this.state.picIndex === 'secondDst'){
+    return "Sushirrito";
+  }
+  else if (this.state.picIndex === 'thirdDst'){
+    return "Bar Basic";
+  }
+
+};
+
+_renderMapItem = () => {
+  if (this.state.picIndex === 'normalMap'){
+    return  (
+      <MapView
+        style={styles.map}
+        showsUserLocation={true}
+        followsUserLocation={true}
+        showsPointsofInterest={true}
+        region={{latitude: 37.4275, longitude: -122.1697, latitudeDelta: .0050, longitudeDelta: .0050}}
+      /> );
+  }
+  else if (this.state.picIndex === 'secondDst'){
+    return (
+      <Image 
+        resizeMode= 'stretch'
+        source={require('../assets/spot2.png')} 
+        style ={styles.dstPic}
+      /> 
+    );
+  }
+  else if (this.state.picIndex === 'thirdDst'){
+    return (
+      <Image 
+
+        source={require('../assets/spot3.png')} 
+        style ={styles.dstPic}
+      /> 
+    );
+  }
+
+};
 
 render() {
-
-    
     return (
       <View style={styles.container}>
-        <View>
-          <Toolbar navigator={this.props.navigator} left='<' title='On Adventure' />
-
+        <View style={styles.dropdownGroup}>
+          <View style={styles.labelBlock}>
+            <Text style={styles.labelBlockText}> Next Stop: </Text>
+            <Text style={styles.dstBlockText}> {this._renderDstItem()} </Text>
+          </View>
         </View>
-        
-        <View style={{alignItems:'center'}}>
-          <MapView  
-            style={styles.map}
-            showsUserLocation={true}
-           //followsUserLocation={this.state.followsUserLocation}
-            showsPointsofInterest={false}
-            region={{latitude: 37.4275, longitude: -122.1697, latitudeDelta: .0050, longitudeDelta: .0050}}
-            />  
+        <Toolbar navigator={this.props.navigator} left='<' title='On Adventure' />
+        {this._renderMapItem()}
+        <View style={styles.suggestedContainer}>
+          <Text style={styles.suggestedText}> Suggested Next Stops</Text>
+          <View style={styles.suggestedPicContainer}>
+            <TouchableOpacity style={styles.suggestedPicGroup} onPress={this._updatePic.bind(this, 'secondDst')}>
+              <Image 
+                source={require('../assets/squaresushi.png')} 
+                style ={styles.pic}
+              /> 
+              <Text style={styles.picText}>
+                Sushirrito
+              </Text>
+            </TouchableOpacity>
 
-        
-      <Text style={{fontSize: 40, fontFamily: 'Avenir', top: 20, backgroundColor: 'rgba(0,0,0,0)'}}>Where to next?</Text>
-      
-      <View style={{margin: 10, width: 100}}/>
-            <TextInput style={styles.textInput}/>
+            <TouchableOpacity style={styles.suggestedPicGroup} onPress={this._updatePic.bind(this, 'thirdDst')}>
+              <Image 
+                source={require('../assets/offthegrid.png')} 
+                style ={styles.pic}
+              /> 
+              <Text style={styles.picText}>
+                Off the Grid
+              </Text>
+            </TouchableOpacity>
 
-      <TouchableOpacity onPress={this.goTolocalFeed}>
-        <Image
-          source={require('../assets/nextstop1.png')}
-          style={{height: 50, width: 94, zIndex:2, top: 80, left: 60}}
-        />
-      </TouchableOpacity>
-      
-      <Text style={{fontSize: 24, top: 260, fontFamily: 'Avenir', alignItems: 'center'}}>Suggested Next Stops</Text>
-        
-          <TouchableOpacity onPress={this._handler.bind(this)}>
-            <Image source={require('../assets/squaresushi.png')} style ={{ width: 140, height: 135, borderRadius: 10, top: 265, left: -88, }}/> 
-            <Text style={{top: 235, left: -65, color: 'white', fontFamily: 'Avenir', fontWeight: 'bold', fontSize: 22, backgroundColor: 'rgba(0,0,0,0)'}}>Sushirrito</Text>
-            
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={require('../assets/offthegrid.png')} style ={{ width: 140, height: 135, borderRadius: 10, top: 100, left: 80}}/> 
-            <Text style={{top: 70, left: 88, color: 'white', fontFamily: 'Avenir', fontWeight: 'bold', fontSize: 22, backgroundColor: 'rgba(0,0,0,0)'}}>Off the Grid</Text>
-          </TouchableOpacity>
+          </View>
         </View>
-
-        <View>
-
-        </View>
-
-
       </View>
 
 
@@ -105,41 +130,91 @@ _goToMainMap = () => {
 }
 
 const styles = StyleSheet.create({
+  labelBlockText: {
+    fontFamily: 'Avenir',
+    fontSize: 18,
+  },
+  dstBlockText: {
+    fontFamily: 'Avenir',
+    fontSize: 18,
+    backgroundColor: 'white',
+    paddingRight: 20,
+    paddingLeft: 20,
+    borderWidth: 1,
+    borderColor: 'black',
+  },
+  labelBlock: {
+    flex: 1,
+    height:40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    flexDirection: 'row',
+  },
+  dropdownGroup: {
+    flexDirection: 'row',
+    width: Dimensions.get('window').width * 0.95,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    // Minus height/2 to get center
+    top: (Dimensions.get('window').height * 0.1),
+    left: (Dimensions.get('window').width/2) - Dimensions.get('window').width * 0.475,
+    zIndex: 2,
+
+  },
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'column',
   },
+  map: {
+    flex: 1,
+  },
+  dstPic: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+    height: 1,
 
- map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: 400,
-    width: 400
   },
-  cancelButton : {
-    borderWidth: 1,
-    borderColor: 'white',
-    height:25,
-    width: 25,
-    borderRadius: 64,
-    margin: 0,
-    backgroundColor: '#FF8217',
-    bottom: -300,
+  suggestedContainer: {
+    flex:0.45,
+    flexDirection: 'column',
+    justifyContent: 'center',
+
+  },
+  suggestedText: {
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    fontWeight: 'bold',
+    left: 20,
+    paddingBottom: 5,
+    top: 10,
+  },
+  suggestedPicContainer: {
+    justifyContent: 'center',
+    flexDirection: 'column',
+    flexDirection: 'row',
+    top: 10,
+  },
+  pic: {
+    width: 140, 
+    height: 135, 
+    borderRadius: 10, 
+  },
+  picText: {
+    color: 'white', 
+    fontFamily: 'Avenir', 
+    fontWeight: 'bold', 
+    fontSize: 22,
+    bottom: 50,
+    backgroundColor: 'rgba(0,0,0,0)'
+  },
+  suggestedPicGroup: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  label : {
-    fontSize: 16,
-    marginBottom: 20,
-    top: 10,
-    marginRight: 10,
-    fontFamily: 'Avenir',
-  },
-  textInput : {
-    height: 30, 
-    backgroundColor: '#F3F3F3',
-    flex: 1,
+    flexDirection: 'column',
+    paddingRight: 10,
+    paddingLeft: 10,
   },
 
 });
