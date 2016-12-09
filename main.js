@@ -2,9 +2,19 @@ import Exponent from 'exponent';
 import React from 'react';
 import SplashScreen from './screens/SplashScreen';
 import SignupScreen from './screens/SignupScreen';
+<<<<<<< cd43c4d801ad1bb2f1140d3927d68158ffbb4949
 import ProfileReadyScreen from './screens/ProfileReadyScreen';
 
+=======
+import FindingScreen from './screens/FindingScreen';
+>>>>>>> Eesha screens
 import Router from './navigation/Router';
+import MainMap from './screens/MainMap';
+import TimerScreen from './screens/TimerScreen';
+import AcceptedScreen from './screens/AcceptedScreen';
+import OnTheWay from './screens/OnTheWay';
+import TripPlayback from './screens/TripPlayback';
+
 import {
   NavigationProvider,
   StackNavigation,
@@ -21,7 +31,7 @@ class AppContainer extends React.Component {
     return (
       <View style={styles.container}>
         <NavigationProvider router={Router}>
-          <StackNavigation id="root" initialRoute={Router.getRoute('localFeed')} />
+          <StackNavigation id="root" initialRoute={Router.getRoute('TripPlayback')} />
         </NavigationProvider>
       </View>
     );
