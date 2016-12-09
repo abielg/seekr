@@ -3,7 +3,10 @@ import React from 'react';
 import Toolbar from '../components/Toolbar';
 import Router from '../navigation/Router';
 import ProfileCard from '../components/ProfileCard';
+import MenuView from '../components/MenuView';
 import Dimensions from 'Dimensions';
+import Drawer from 'react-native-drawer';
+
 
 import {
   StyleSheet,
@@ -33,23 +36,31 @@ export default class TouristFeed extends React.Component {
 
   render() {
     return (
-      <View>
-        <StatusBar barStyle='dark-content'/>
+      <Drawer
+          ref={(ref) => this._drawer = ref}
+          content={<MenuView/>}
+          openDrawerOffset={0.3}
+          closedDrawerOffset={0}
+          acceptTap = {true}
+      >
         <View style={styles.container}>
-          <Toolbar navigator={this.props.navigator} left='<' title='Tourists Near You' />
-          <View style={styles.buttonView}> 
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonSelected : styles.buttonUnselected} onPress={this._changeStatus.bind(this, 'list')}>
-                <Text style={this.state.statusIsFeed ? styles.textSelected : styles.textUnselected}>List</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonUnselected : styles.buttonSelected} onPress={this._changeStatus.bind(this, 'map')}>
-                <Text style={this.state.statusIsFeed ? styles.textUnselected : styles.textSelected}>Map</Text>
-              </TouchableOpacity>
-            </View>
-          </View>  
-          {this.state.statusIsFeed ? this._renderFeed() : this._renderMap()}    
+          <StatusBar barStyle='dark-content'/>
+          <View>
+            <Toolbar navigator={this.props.navigator} left='Hamburger' title='Tourists Near You' onPress={()=>{this._drawer.open()}}/>
+            <View style={styles.buttonView}> 
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonSelected : styles.buttonUnselected} onPress={this._changeStatus.bind(this, 'list')}>
+                  <Text style={this.state.statusIsFeed ? styles.textSelected : styles.textUnselected}>List</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={this.state.statusIsFeed ? styles.buttonUnselected : styles.buttonSelected} onPress={this._changeStatus.bind(this, 'map')}>
+                  <Text style={this.state.statusIsFeed ? styles.textUnselected : styles.textSelected}>Map</Text>
+                </TouchableOpacity>
+              </View>
+            </View>  
+            {this.state.statusIsFeed ? this._renderFeed() : this._renderMap()}       
+          </View>
         </View>
-      </View>
+      </Drawer>  
     );
   }
 
@@ -63,13 +74,13 @@ export default class TouristFeed extends React.Component {
         <View style={{flex: 1}}/>
         <View style={styles.mainSection}>  
           <Text style={styles.subtitle}>Choose Adventure Buddy:</Text>
-          <ScrollView style={{height: 600}}>
+          <ScrollView style={{height: 520}}>
             <ProfileCard name='Abiel Gutierrez' bio={this.bio1} pic={require('../assets/abiel.jpg')}
             age='21 years old'interests={this.interests1} reviewsNum='23' numStars='4' action={this._goToLocalProfile}/>
             <ProfileCard name='Eesha Choudhari' bio={this.bio2} pic={require('../assets/eesha.jpg')}
-            age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5'/>
+            age='22 years old'interests={this.interests2} reviewsNum='14' numStars='5' action={this._goToLocalProfile}/>
             <ProfileCard name='Paul Ryan' bio={this.bio3} pic={require('../assets/paul.jpg')}
-            age='43 years old'interests={this.interests3} reviewsNum='20' numStars='4'/>
+            age='43 years old'interests={this.interests3} reviewsNum='20' numStars='4' action={this._goToLocalProfile}/>
           </ScrollView>
         </View>
         <View style={{flex: 1}}/> 
@@ -140,7 +151,7 @@ const styles = StyleSheet.create({
   },
   buttonView : {
     justifyContent:'center',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 
 });

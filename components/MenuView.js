@@ -121,7 +121,7 @@ const styles= StyleSheet.create({
   },
   menuItemFooter:{
     flex:3,
-    width: Dimensions.get('window').width,
+    width: Dimensions.get('window').width * 0.70,
     height: 50,
     backgroundColor: '#e4e4e4',
     paddingLeft: 30,
