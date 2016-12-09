@@ -17,7 +17,6 @@ import TimerScreen from '../screens/TimerScreen';
 import AcceptedScreen from '../screens/AcceptedScreen';
 import OnTheWay from '../screens/OnTheWay';
 import TripSummaryScreen from '../screens/TripSummaryScreen';
-import TripPlayback from '../screens/TripPlayback';
 import OnTrip from '../screens/OnTrip';
 
 export default createRouter(() => ({
