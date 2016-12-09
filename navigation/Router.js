@@ -11,6 +11,12 @@ import EmptyScreen from '../screens/EmptyScreen';
 import LocalProfile from  '../screens/LocalProfile';
 import RateTripScreen from '../screens/RateTripScreen';
 import TripPlayback from '../screens/TripPlayback';
+import FindingScreen from '../screens/FindingScreen';
+import MainMap from '../screens/MainMap';
+import TimerScreen from '../screens/TimerScreen';
+import AcceptedScreen from '../screens/AcceptedScreen';
+import OnTheWay from '../screens/OnTheWay';
+import TripSummaryScreen from '../screens/TripSummaryScreen';
 
 export default createRouter(() => ({
   signup: () => SignupScreen,
@@ -22,4 +28,10 @@ export default createRouter(() => ({
   localProfile: () => LocalProfile,
   rateTripScreen: () => RateTripScreen,
   tripPlayback: () => TripPlayback,
+  FindingScreen: () => FindingScreen,
+  MainMap: () => MainMap,
+  TimerScreen: () => TimerScreen,
+  AcceptedScreen: () => AcceptedScreen,
+  OnTheWay: () => OnTheWay,
+  tripSummaryScreen: () => TripSummaryScreen,
 }));

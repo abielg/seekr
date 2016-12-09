@@ -3,8 +3,14 @@ import React from 'react';
 import SplashScreen from './screens/SplashScreen';
 import SignupScreen from './screens/SignupScreen';
 import ProfileReadyScreen from './screens/ProfileReadyScreen';
-
+import FindingScreen from './screens/FindingScreen';
 import Router from './navigation/Router';
+import MainMap from './screens/MainMap';
+import TimerScreen from './screens/TimerScreen';
+import AcceptedScreen from './screens/AcceptedScreen';
+import OnTheWay from './screens/OnTheWay';
+import TripPlayback from './screens/TripPlayback';
+
 import {
   NavigationProvider,
   StackNavigation,
