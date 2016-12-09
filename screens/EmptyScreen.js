@@ -21,16 +21,7 @@ export default class EmptyScreen extends React.Component {
     super(props);
     //this.state = {drawerOpen: false};
   }
-
-  closeControlPanel = () => {
-    this._drawer.close()
-  };
-  openControlPanel = () => {
-    this._drawer.open()
-  };
-  toggleControlPanel = () => {
-    this.openControlPanel();
-  };
+  
   render () {
     return (
       <Drawer
@@ -41,7 +32,7 @@ export default class EmptyScreen extends React.Component {
         acceptTap = {true}
         >
         <View style={styles.container}>
-          <Toolbar navigator={this.props.navigator} left='Hamburger' title='Rando Screen' onPress={this.toggleControlPanel} />
+          <Toolbar navigator={this.props.navigator} left='Hamburger' title='Rando Screen' onPress={()=>{this._drawer.open()}} />
           <View style={styles.overlay}/>
         </View>
       </Drawer>
