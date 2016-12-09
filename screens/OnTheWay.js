@@ -57,14 +57,14 @@ render() {
           <TouchableOpacity style={styles.cancelButton} onPress={this._goToMainMap}>
               <Text style={{color: 'white'}}>X</Text>
           </TouchableOpacity>
-          <Text style={{fontSize: 12, bottom: -410, color: 'orange', fontFamily: 'Avenir'}}> Cancel </Text>
+          <Text style={{fontSize: 12, bottom: -375, color: 'orange', fontFamily: 'Avenir'}}> Cancel </Text>
           <TouchableOpacity>
             <Image source={require('../assets/phone1.png')} style ={{ width: 45, height: 60, top: 300, left: -110, zIndex: 2}}/> 
-            <Text style={{top: 310, left: -95, fontFamily: 'Avenir'}}>Call</Text>
+            <Text style={{top: 305, left: -95, fontFamily: 'Avenir'}}>Call</Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Image source={require('../assets/message1.png')} style ={{ width: 60, height: 60, top: 225, left: 110, zIndex: 2}}/> 
-            <Text style={{top: 230, left: 110, fontFamily: 'Avenir'}}>Message</Text>
+            <Text style={{top: 225, left: 110, fontFamily: 'Avenir'}}>Message</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -92,14 +92,11 @@ const styles = StyleSheet.create({
     width: 400
   },
   cancelButton : {
-    borderWidth: 1,
-    borderColor: 'white',
-    height:25,
-    width: 25,
-    borderRadius: 64,
-    margin: 0,
+    height:40,
+    width: 40,
+    borderRadius: 80,
     backgroundColor: '#FF8217',
-    bottom: -400,
+    bottom: -370,
     alignItems: 'center',
     justifyContent: 'center',
   },
