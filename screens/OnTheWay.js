@@ -50,7 +50,7 @@ export default class roads extends React.Component {
 componentDidMount () {
     setTimeout(() => {
     this.props.navigator.push(Router.getRoute('OnTrip'));
-    }, 5000);
+    }, 2500);
   }
 
 render() {
