@@ -34,7 +34,7 @@ export default class FindingScreen extends React.Component {
 componentDidMount () {
     setTimeout(() => {
 	  this.props.navigator.push(Router.getRoute('AcceptedScreen'));
-    }, 5000);
+    }, 2500);
   }
 
 _loadInitialState = async () => {
