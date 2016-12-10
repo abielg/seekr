@@ -10,7 +10,8 @@ import {
   View,
   Dimensions,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage,
 } from 'react-native';
 
 var screenHeight = Dimensions.get('window').height;
@@ -19,8 +20,27 @@ var screenWidth = Dimensions.get('window').width;
 export default class MenuView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { statusIsLocal: this.props.statusIsLocal};
+    this.state = {};
+    this._loadInitialState();
+    //this.state = { statusIsLocal: this.props.statusIsLocal};
   }
+
+  componentDidMount(){
+    this._loadInitialState();
+  }
+
+  _loadInitialState = async () => {
+    try {
+      var value = await AsyncStorage.getItem('isStateLocal');
+      if (value !== null){
+        this.setState({ statusIsLocal: value==='true'});
+      } else {
+        this.setState = ({ statusIsLocal: false});
+      }
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  };
 
   _changeStatus(pressed){
     if ((this.state.statusIsLocal && pressed != 'local')){

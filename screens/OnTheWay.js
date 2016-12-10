@@ -10,7 +10,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  NSLocationWhenInUseUsageDescription
+  NSLocationWhenInUseUsageDescription,
+  AsyncStorage,
 } from 'react-native';
 import MapView from 'react-native-maps';
 import {
@@ -25,6 +26,26 @@ import DropDown, {
  
 
 export default class roads extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this._loadInitialState();
+    //this.state = { statusIsLocal: this.props.statusIsLocal};
+  }
+
+  _loadInitialState = async () => {
+    try {
+      var value = await AsyncStorage.getItem('isStateLocal');
+      if (value !== null){
+        this.setState({ statusIsLocal: value==='true'});
+      } else {
+        this.setState({ statusIsLocal: false});
+      }
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  };
 
 componentDidMount () {
     setTimeout(() => {
@@ -46,12 +67,15 @@ render() {
             followsUserLocation={true}
             showsPointsofInterest={false}
             region={{latitude: 37.4275, longitude: -122.1697, latitudeDelta: .0050, longitudeDelta: .0050}}
-            />  
-          <Image
-            source={require('../assets/eesha.png')}
-            style={{height: 85, width: 132, top: 60}}
-          /> 
-          <Text style={{fontSize: 20, top: 340, alignItems: 'center', fontFamily: 'Avenir'}}>Eesha is on her way!</Text>
+            />
+
+          {
+            this.state.statusIsLocal?
+            (<Image source={require('../assets/paul.jpg')} style={{height: 40, width: 40, borderRadius: 20, top:60}} />)
+            :
+            (<Image source={require('../assets/eesha.png')} style={{height: 85, width: 132, top: 60}} />)
+          }
+          <Text style={{fontSize: 20, top: 340, alignItems: 'center', fontFamily: 'Avenir'}}>{this.state.statusIsLocal?'Going to pick up Paul!' : 'Eesha is on her way!'}</Text>
           <Text style={{fontSize: 12, top: 350, alignItems: 'center', fontFamily: 'Avenir'}}>Destination TBD upon arrival</Text>
           <Text style={{fontSize: 20, top: 360, alignItems: 'center', color: 'orange', fontFamily: 'Avenir'}}>3 minutes</Text>
           <TouchableOpacity style={styles.cancelButton} onPress={this._goToMainMap}>

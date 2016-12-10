@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   TextInput,
   TouchableHighlight,
-  TouchableWithoutFeedback  
+  TouchableWithoutFeedback,
+  AsyncStorage,
 } from 'react-native';
 
 import {
@@ -24,17 +25,37 @@ import TimerMixin from 'react-timer-mixin';
 
 export default class FindingScreen extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {};
+    this._loadInitialState();
+  }
+
 componentDidMount () {
     setTimeout(() => {
 	  this.props.navigator.push(Router.getRoute('AcceptedScreen'));
     }, 5000);
   }
 
+_loadInitialState = async () => {
+  try {
+    var value = await AsyncStorage.getItem('isStateLocal');
+    if (value !== null){
+      console.log("Got value"+value);
+      this.setState({ statusIsLocal: value==='true'});
+    } else {
+      this.setState({ statusIsLocal: false});
+    }
+  } catch (error) {
+    console.log('AsyncStorage error: ' + error.message);
+  }
+};
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.background}>  
-          <Text style={styles.title1}> Eesha has</Text>
+          <Text style={styles.title1}> {this.state.statusIsLocal? 'Paul':'Eesha'} has</Text>
   				<CountDown
   				  text={':'} //default '' 
   				  time={59} //default 60 

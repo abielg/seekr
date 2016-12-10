@@ -10,6 +10,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  AsyncStorage,
 } from 'react-native';
 
 import {
@@ -26,15 +27,29 @@ export default class FindingScreen extends React.Component {
     this.state = {
       timePassed: false
     };
-  } 
+    this._loadInitialState();
+  }
+
+  _loadInitialState = async () => {
+    try {
+      var value = await AsyncStorage.getItem('isStateLocal');
+      if (value !== null){
+        this.setState({ ...this.state, statusIsLocal: value==='true'});
+      } else {
+        this.setState = ({ ...this.state, statusIsLocal: false});
+      }
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  };
 
   render() {
     return (
         <View style={styles.container}>
           <View style={styles.background}>  
-            <Text style={styles.title}> Eesha has accepted! </Text>
+            <Text style={styles.title}> {this.state.statusIsLocal? 'Paul':'Eesha'} has accepted! </Text>
             <Image source={require('../assets/abielandeesha.png')} style ={{bottom: 0 }}/>
-            <Text style={{flex: 8,color: 'black',fontFamily: 'Avenir', fontSize: 18,margin: 0,top: 38}}> Going on an adventure with Eesha </Text>
+            <Text style={{flex: 8,color: 'black',fontFamily: 'Avenir', fontSize: 18,margin: 0,top: 38}}> Going on an adventure with {this.state.statusIsLocal? 'Paul':'Eesha'}  </Text>
             <Button title='Continue' action={this._goToOnTheWay} />
           </View> 
 

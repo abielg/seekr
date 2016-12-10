@@ -39,16 +39,16 @@ export default class TouristProfile extends React.Component {
     return (
       <View style={styles.superContainer}>
         <StatusBar barStyle = 'light-content'/>
-        <Toolbar navigator={this.props.navigator} left='<' title='Eesha&#39;s Profile' />
+        <Toolbar navigator={this.props.navigator} left='<' title='Paul&#39;s Profile' />
         <ScrollView>
           <View style={styles.mainwrapper}>
             <View style={{flex:1}}/>
             <View style={styles.centerwrapper}>
               <Image
-                  source={require('../assets/eesha.jpg')}
+                  source={require('../assets/paul.jpg')}
                   style={styles.pic}
               />
-              <Text style={styles.nameAge}>Eesha, 22</Text>
+              <Text style={styles.nameAge}>Paul, 22</Text>
               <View>
                 <Text style={styles.interests}>
                   <Text style={{color:'white', fontWeight:'bold'}}>Seeking:</Text>   Partying   Bars    Shopping

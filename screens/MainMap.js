@@ -9,7 +9,8 @@ import {
   Image,
   TouchableOpacity,
   NSLocationWhenInUseUsageDescription,
-  Dimensions
+  Dimensions,
+  AsyncStorage,
 } from 'react-native';
 import MapView from 'react-native-maps';
 import {
@@ -35,7 +36,16 @@ export default class MainMap extends React.Component {
       this.state = {
         selected: 'None',
       }
+      this._onValueChange();
   }
+
+  _onValueChange = async () => {
+    try {
+      await AsyncStorage.setItem('isStateLocal', 'false');
+    } catch (error) {
+      console.log('Set failure: AsyncStorage error: ' + error.message);
+    }
+  };
 
   _toggleState = (newState) => {
     return () => {
@@ -78,7 +88,7 @@ export default class MainMap extends React.Component {
       return (
         <Drawer
           ref={(ref) => this._drawer = ref}
-          content={<MenuView navigator={this.props.navigator} statusIsLocal={false}/>}
+          content={<MenuView navigator={this.props.navigator}/>}
           openDrawerOffset={0.3}
           closedDrawerOffset={0}
           acceptTap = {true}

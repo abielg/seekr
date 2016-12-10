@@ -16,7 +16,8 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
-  StatusBar
+  StatusBar,
+  AsyncStorage,
 } from 'react-native';
 
 var screenHeight = Dimensions.get('window').height;
@@ -26,7 +27,16 @@ export default class TouristFeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = { statusIsFeed: true };
+    this._onValueChange();
   }
+
+  _onValueChange = async () => {
+    try {
+      await AsyncStorage.setItem('isStateLocal', 'true');
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  };
 
   _changeStatus(pressed){
     if ((this.state.statusIsFeed && pressed != 'list') || (!this.state.statusIsFeed && pressed != 'map')){
@@ -38,7 +48,7 @@ export default class TouristFeed extends React.Component {
     return (
       <Drawer
           ref={(ref) => this._drawer = ref}
-          content={<MenuView navigator={this.props.navigator} statusIsLocal={true}/>}
+          content={<MenuView navigator={this.props.navigator}/>}
           openDrawerOffset={0.3}
           closedDrawerOffset={0}
           acceptTap = {true}

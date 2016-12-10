@@ -16,6 +16,7 @@ import {
   TextInput,
   TouchableHighlight,
   Dimensions,
+  AsyncStorage,
 } from 'react-native';
 
 export default class TripSummaryScreen extends React.Component {
@@ -23,7 +24,21 @@ export default class TripSummaryScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {selection: 'eesha'};
+    this._loadInitialState();
   }
+
+  _loadInitialState = async () => {
+    try {
+      var value = await AsyncStorage.getItem('isStateLocal');
+      if (value !== null){
+        this.setState({...this.state, statusIsLocal: value==='true'});
+      } else {
+        this.setState({...this.state, statusIsLocal: false});
+      }
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  };
 
   _renderStars(numStars) {
     count = 1;
@@ -51,15 +66,28 @@ export default class TripSummaryScreen extends React.Component {
     return (
       <View style={styles.bigContainer}>
         <View style={styles.absoluteEeshaGroup}>
-          <Image
-            source={require('../assets/eesha.jpg')}
-            style={{
-              height: 70,
-              width: 70,
-              borderRadius: 35,
-            }}
-          />
-          <Text style={styles.eeshaFont}> Eesha </Text>
+          {
+            this.state.statusIsLocal ? 
+            <Image
+              source={require('../assets/paul.jpg')}
+              style={{
+                height: 70,
+                width: 70,
+                borderRadius: 35,
+              }}
+            />
+
+            :
+            (<Image
+              source={require('../assets/eesha.jpg')}
+              style={{
+                height: 70,
+                width: 70,
+                borderRadius: 35,
+              }}
+            />)
+          }
+          <Text style={styles.eeshaFont}> {this.state.statusIsLocal ? 'Paul' : 'Eesha'} </Text>
           <View style={styles.starContainer}>
             {this._renderStars(4)}
           </View>
