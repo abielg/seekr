@@ -57,7 +57,7 @@ export default class TouristMapView extends React.Component {
             </TouchableOpacity>
             <TouchableOpacity style={styles.startPoint2} onPress={this._goToSignup}>
               <Image
-                source={require('../assets/abiel.jpg')}
+                source={require('../assets/paul.jpg')}
                   style={{
                     height: 50,
                     width: 50,
@@ -71,7 +71,7 @@ export default class TouristMapView extends React.Component {
       );
   }
   _goToSignup = () => {
-      this.props.navigator.push(Router.getRoute('localProfile'));
+      this.props.navigator.push(Router.getRoute('touristProfile'));
   }
 }
 
